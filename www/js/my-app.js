@@ -61,6 +61,7 @@ function mplaca(v){
 var $$ = Dom7;
 
 var $server = 'http://aptohome.com.br/admin/';
+var $apiKey = 'AIzaSyC55_b17t0ZaziJLHdk1oyIFHY5pSvcIcA';
 var imagemPerf;
 var tabindex = 1;
 var bannerview = 0;
@@ -3447,7 +3448,7 @@ function enviarocorrencias()
             // Salvando imagem no servidor
             $.ajax($server+'functionAppOcorrencia.php?', {
                 type: "post",
-                data: "idmorador="+$$idmorador+"&imagem="+imagem+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idtipoocorrencia="+$$idtipoocorrencia+"&idlocalocorrencia="+$$idlocalocorrencia+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "idmorador="+$$idmorador+"&imagem="+imagem+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idtipoocorrencia="+$$idtipoocorrencia+"&idlocalocorrencia="+$$idlocalocorrencia+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -3472,7 +3473,7 @@ function enviarocorrencias()
             // Salvando pdf no servidor
             $.ajax($server+'functionAppOcorrencia.php?', {
                 type: "post",
-                data: "pdf="+$$pdfFileOcorrencias+"&idmorador="+$$idmorador+"&imagem="+imagem+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idtipoocorrencia="+$$idtipoocorrencia+"&idlocalocorrencia="+$$idlocalocorrencia+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "pdf="+$$pdfFileOcorrencias+"&idmorador="+$$idmorador+"&imagem="+imagem+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idtipoocorrencia="+$$idtipoocorrencia+"&idlocalocorrencia="+$$idlocalocorrencia+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -3835,7 +3836,7 @@ function enviartransparencia()
             // Salvando imagem no servidor
             $.ajax($server+'functionAppTransparencia.php?', {
                 type: "post",
-                data: "imagem="+imagem+"&idsindico="+$$idsindico+"&idcondominio="+$$idcondominio+"&idadministradora="+$$idadministradora+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "imagem="+imagem+"&idsindico="+$$idsindico+"&idcondominio="+$$idcondominio+"&idadministradora="+$$idadministradora+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -3864,7 +3865,7 @@ function enviartransparencia()
                 processData: false,
                 contentType: false,
                 cache: false,
-                data: "pdf="+$$pdfFileTransparencia+"&idsindico="+$$idsindico+"&idcondominio="+$$idcondominio+"&idadministradora="+$$idadministradora+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "pdf="+$$pdfFileTransparencia+"&idsindico="+$$idsindico+"&idcondominio="+$$idcondominio+"&idadministradora="+$$idadministradora+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -6996,7 +6997,7 @@ function enviarcomuncondominio()
             // Salvando imagem no servidor
             $.ajax($server+'functionAppComunCondominio.php?', {
                 type: "post",
-                data: "imagem="+imagem+"&idsindico="+$$idsindico+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "imagem="+imagem+"&idsindico="+$$idsindico+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -7024,7 +7025,7 @@ function enviarcomuncondominio()
                 processData: false,
                 contentType: false,
                 cache: false,
-                data: "pdf="+$$pdfFileComuncondominio+"&idsindico="+$$idsindico+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "pdf="+$$pdfFileComuncondominio+"&idsindico="+$$idsindico+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -7688,7 +7689,7 @@ function enviarresp()
 
         $.ajax($server+'functionAppResposta.php?', {
             type: "post",
-            data: "imagem="+imagem+"&idmorador="+$$idmorador+"&idsindico="+$$idsindico+"&idportaria="+$$idportaria+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idpostdestino="+$$idpostdestinoresp+"&iddestino="+$$iddestinoresp+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+            data: "imagem="+imagem+"&idmorador="+$$idmorador+"&idsindico="+$$idsindico+"&idportaria="+$$idportaria+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idpostdestino="+$$idpostdestinoresp+"&iddestino="+$$iddestinoresp+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
         })
           .fail(function() {
             myApp.hideIndicator();
@@ -7925,7 +7926,7 @@ function enviarcomunportaria()
             // Salvando imagem no servidor
             $.ajax($server+'functionAppComunPortaria.php?', {
                 type: "post",
-                data: "imagem="+imagem+"&idmorador="+$$idmorador+"&idsindico="+$$idsindico+"&idportaria="+$$idportaria+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "imagem="+imagem+"&idmorador="+$$idmorador+"&idsindico="+$$idsindico+"&idportaria="+$$idportaria+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -7957,7 +7958,7 @@ function enviarcomunportaria()
                 processData: false,
                 contentType: false,
                 cache: false,
-                data: "pdf="+$$pdfFileComunportaria+"&idmorador="+$$idmorador+"&idsindico="+$$idsindico+"&idportaria="+$$idportaria+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "pdf="+$$pdfFileComunportaria+"&idmorador="+$$idmorador+"&idsindico="+$$idsindico+"&idportaria="+$$idportaria+"&idadministradora="+$$idadministradora+"&idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&iddestino="+$$iddestino+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -8443,7 +8444,7 @@ function enviarcomunmorador()
             // Salvando imagem no servidor
             $.ajax($server+'functionAppComunMorador.php?', {
                 type: "post",
-                data: "imagem="+imagem+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&iddestino="+$$iddestino+"&idcondominio="+$$idcondominio+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "imagem="+imagem+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&iddestino="+$$iddestino+"&idcondominio="+$$idcondominio+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -8471,7 +8472,7 @@ function enviarcomunmorador()
                 processData: false,
                 contentType: false,
                 cache: false,
-                data: "pdf="+$$pdfFileComunmorador+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&iddestino="+$$iddestino+"&idcondominio="+$$idcondominio+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&action=add",
+                data: "pdf="+$$pdfFileComunmorador+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&iddestino="+$$iddestino+"&idcondominio="+$$idcondominio+"&txtTitulo="+$$txtTitulo+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
             })
               .fail(function() {
                 myApp.hideIndicator();
@@ -9616,7 +9617,7 @@ function confespaco(guid,eq){
         myApp.showIndicator();
 
         $.ajax({
-            url: $server+"functionAppEspaco.php?guid="+guid+"&action=ativar",
+            url: $server+"functionAppEspaco.php?guid="+guid+"&apiKey="+$apiKey+"&action=ativar",
             data : "get",
             success: function(data) {
             if (data!="ok") {
@@ -9644,7 +9645,7 @@ function delespaco(guid,eq){
         myApp.showIndicator();
 
         $.ajax({
-            url: $server+"functionAppEspaco.php?guid="+guid+"&action=deletar",
+            url: $server+"functionAppEspaco.php?guid="+guid+"&apiKey="+$apiKey+"&action=deletar",
             data : "get",
             success: function(data) {
             if (data!="ok") {
@@ -9981,7 +9982,7 @@ function enviarespaco()
 
         $.ajax($server+'functionAppEspaco.php?', {
             type: "post",
-            data: "iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&idcondominio="+$$idcondominio+"&idlocalespaco="+$$idlocalespaco+"&horaini="+$$horaini+"&horater="+$$horater+"&txtDescricao="+$$txtDescricao+"&action=add",
+            data: "iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&idcondominio="+$$idcondominio+"&idlocalespaco="+$$idlocalespaco+"&horaini="+$$horaini+"&horater="+$$horater+"&txtDescricao="+$$txtDescricao+"&apiKey="+$apiKey+"&action=add",
         })
           .fail(function() {
             myApp.hideIndicator();
@@ -10154,11 +10155,11 @@ function limpar()
 
             var push = PushNotification.init({
                 android: {
-                    senderID: "214666097431",
+                    senderID: "10572585588",
                 },
                 ios: {
-                    senderID: "214666097431",
-                    gcmSandbox: "false", // false para producao true para desenvolvimento
+                    senderID: "10572585588",
+                    gcmSandbox: "true", // false para producao true para desenvolvimento
                     alert: "true",
                     sound: "true",
                     badge: "false"
