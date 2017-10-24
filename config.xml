@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" android-versionCode="15" ios-CFBundleVersion="0.0.20" version="1.0.9" id="com.pratica.android"  >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" ios-CFBundleVersion="1.1.0" version="1.1.0" id="com.pratica.ios"  >
 <!-- Android 
 <widget id="com.conceito.android" version="1.0.8" android-versionCode="14" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 </widget>-->
@@ -28,6 +28,7 @@
     <access origin="https://*.gstatic.com"/>
     <access origin="https://*.google.com"/>
     <access origin="https://*.googleusercontent.com"/>
+    <access origin="http://*.player.tv.br"/>
 </platform>
 <platform name="ios" >
     <allow-intent href="http://*/*"/>
@@ -44,6 +45,7 @@
     <access origin="https://*.gstatic.com"/>
     <access origin="https://*.google.com"/>
     <access origin="https://*.googleusercontent.com"/>
+    <access origin="http://*.player.tv.br"/>
 </platform>
 <preference name="phonegap-version" value="cli-6.2.0" />
 <preference name="xwalkMultipleApk" value="false" />
