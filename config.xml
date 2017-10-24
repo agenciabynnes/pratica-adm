@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" ios-CFBundleVersion="1.1.0" version="1.1.0" id="com.pratica.ios"  >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" ios-CFBundleVersion="1.1.0" version="1.1.0" id="com.pratica.ios"  >
 <!-- Android 
 <widget id="com.conceito.android" version="1.0.8" android-versionCode="14" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 </widget>-->
@@ -19,6 +19,8 @@
     <allow-navigation href="http://*/*"/>
     <allow-navigation href="https://*/*"/>
     <allow-navigation href="data:*"/>
+    <allow-navigation href="*"/>
+    <access origin="*"/>
     <access origin="http://*.aptohome.com.br"/>
     <access origin="https://*.aptohome.com.br"/>
     <access origin="https://*.pagseguro.uol.com.br"/>
@@ -36,6 +38,8 @@
     <allow-navigation href="http://*/*"/>
     <allow-navigation href="https://*/*"/>
     <allow-navigation href="data:*"/>
+    <allow-navigation href="*"/>
+    <access origin="*"/>
     <access origin="http://*.aptohome.com.br"/>
     <access origin="https://*.aptohome.com.br"/>
     <access origin="https://*.pagseguro.uol.com.br"/>
