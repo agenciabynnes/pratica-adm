@@ -76,6 +76,7 @@
     <access origin="http://*.google.com"/>
     <access origin="http://*.googleusercontent.com"/>
     <access origin="http://*.player.tv.br"/>
+    <access origin='https://cordova.apache.org' minimum-tls-version='TLSv1.1' requires-forward-secrecy='false' requires-certificate-transparency='true' />
     <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
 </platform>
 <preference name="phonegap-version" value="cli-6.2.0" />
