@@ -12046,7 +12046,7 @@ myApp.onPageReinit('alertadechegadacont', function (page) {
         myApp.confirm('Deseja realmente concluir o Aviso de Chegada?', function () {
 
                 $.ajax({
-                    url: $server+"functionAppAlerta.php?guid="+localStorage.getItem('guidalertadechegadacont')+"&action=deltracking",
+                    url: $server+"functionAppAlerta.php?guid="+localStorage.getItem('guidalertadechegadacont')+"&apiKey="+$apiKey+"&action=deltracking",
                     data : "get",
                     success: function(data) {
                         console.log("del tracking");
@@ -12861,7 +12861,7 @@ function delespaco(guid,eq,idsindico,idadministradora,idmorador){
 
             myApp.showIndicator();
             $.ajax({
-                url: $server+"functionAppEspaco.php?guid="+guid+"&motivo="+motivo+"&idsindico="+idsindico+"&idadministradora="+idadministradora+"&idmorador="+idmorador+"&action=deletar",
+                url: $server+"functionAppEspaco.php?guid="+guid+"&motivo="+motivo+"&idsindico="+idsindico+"&idadministradora="+idadministradora+"&idmorador="+idmorador+"&apiKey="+$apiKey+"&action=deletar",
                 data : "get",
                 success: function(data) {
                 if (data!="ok") {
@@ -13755,7 +13755,7 @@ $('.buttonshare').hide();
             myApp.confirm('Deseja realmente cancelar o Aviso de Chegada?', function () {
 
                     $.ajax({
-                        url: $server+"functionAppAlerta.php?guid="+localStorage.getItem('guidtracking')+"&action=deltracking",
+                        url: $server+"functionAppAlerta.php?guid="+localStorage.getItem('guidtracking')+"&apiKey="+$apiKey+"&action=deltracking",
                         data : "get",
                         success: function(data) {
                             console.log("del tracking");
@@ -13916,7 +13916,7 @@ $('.buttonshare').hide();
             myApp.confirm('Deseja realmente cancelar o modo pânico?', function () {
 
                     $.ajax({
-                        url: $server+"functionAppAlerta.php?guid="+localStorage.getItem('guidtracking')+"&action=deltracking",
+                        url: $server+"functionAppAlerta.php?guid="+localStorage.getItem('guidtracking')+"&apiKey="+$apiKey+"&action=deltracking",
                         data : "get",
                         success: function(data) {
                             console.log("del tracking");
@@ -14129,7 +14129,7 @@ $('.buttonshare').hide();
                                 $.ajax($server+'functionAppAlerta.php?', {
                                     type: "post",
                                     dataType: "json",
-                                    data: "idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&idveiculo="+$$idveiculo+"&panico="+localStorage.getItem("panico")+"&action=add",
+                                    data: "idcondominio="+$$idcondominio+"&idbloco="+$$idbloco+"&iddomicilio="+$$iddomicilio+"&idmorador="+$$idmorador+"&idveiculo="+$$idveiculo+"&panico="+localStorage.getItem("panico")+"&apiKey="+$apiKey+"&action=add",
                                      async: false,
                                      beforeSend: function(x) {
                                       if(x && x.overrideMimeType) {
@@ -14307,7 +14307,7 @@ $('.buttonshare').hide();
                                 console.log("panico = "+auxPanico);
                                 $.ajax($server+'functionAppAlerta.php?', {
                                     type: "post",
-                                    data: "guid="+localStorage.getItem("guidtracking")+"&panico="+localStorage.getItem("panico")+"&action=add",
+                                    data: "guid="+localStorage.getItem("guidtracking")+"&panico="+localStorage.getItem("panico")+"&apiKey="+$apiKey+"&action=add",
                                 })
                                   .fail(function() {
 
