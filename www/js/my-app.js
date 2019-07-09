@@ -590,9 +590,9 @@ function badge(){
 }
 
 myApp.onPageInit('index', function (page) {
-        console.log("onPageInit Portaria");
+        
     if (localStorage.getItem("portariaIdportaria")) {
-
+        console.log("onPageInit Portaria");
         // seleciona dashboard portaria
         $$('.pageindex').addClass('invisivel');
         $$('.pageportaria').removeClass('invisivel');
@@ -1824,11 +1824,15 @@ function modulos(){
                             console.log("entrei");
                             localStorage.setItem("labelapto", data.legend.aptolegend);
                             $(".labelapto").html(localStorage.getItem("labelapto"));
+                        }else{
+                            localStorage.setItem("labelapto", "Apto");
                         }
 
                         if (data.legend.blocolegend!=null && data.legend.blocolegend!="null") {
                             localStorage.setItem("labelbloco", data.legend.blocolegend);
                             $(".labelbloco").html(localStorage.getItem("labelbloco"));
+                        }else{
+                            localStorage.setItem("labelbloco", "Bloco");
                         }
 
                         if (data.legend.moradorlegend!=null && data.legend.moradorlegend!="null") {
@@ -1840,6 +1844,8 @@ function modulos(){
                             $(".labelmoradorupper").html(data.legend.moradorlegend.toUpperCase());
                             $(".labelmoradorinserirupper").html('INSERIR '+data.legend.moradorlegend.toUpperCase());
                             $(".labelmoradorcomunlegend").html('condomínio | portaria | '+data.legend.moradorlegend.toLowerCase());
+                        }else{
+                            localStorage.setItem("labelmorador", "Morador");
                         }
                     }
 
@@ -2210,7 +2216,7 @@ function profilePortaria(){
         var bloco_num = localStorage.getItem("blocoNum");
     }
     var profile_detalhes = "Condomínio: " + localStorage.getItem("condominioNome");
-
+    $('.nameHome').html("Cond. " +localStorage.getItem("condominioNome"));
     $('.profile_detalhes').html(profile_detalhes);
     
     atualizartokenPortaria(localStorage.getItem("token"));
@@ -2297,6 +2303,7 @@ function searchhomeportaria(){
                             var textnomebloco = "";
                             var textbloco = "";
                             var urlVisitante = "";
+                            var num_bloco = "";
 
                             datasearch += '<li class="item-divider"> Visitantes no Condomínio</li>';
 
@@ -2327,8 +2334,8 @@ function searchhomeportaria(){
                                 }
 
                                 // Verifica se o condomínio é sem bloco
-                                if(arrayVisitantedentro[i].num_bloco!="Sem bloco"){
-                                    var num_bloco = "/" + arrayVisitantedentro[i].num_bloco;
+                                if(arrayVisitantedentro[i].num_bloco.toUpperCase()!="SEM BLOCO"){
+                                    num_bloco = "/" + arrayVisitantedentro[i].num_bloco;
                                 }
                                 // Verifica se é visitante para o condomínio
                                 if (arrayVisitantedentro[i].num_domicilio!="") {
@@ -7004,14 +7011,28 @@ $('#butinserirvisitante').on('click', function(){
 
     if (localStorage.getItem("portariaIdportaria")) {
         if (!$('#txtvisitantecondominio:checked').val()){
-            if ($$('#blocolistportariavisitantes').val()=="" || $$('#domiciliolistportariavisitantes').val()=="") {
-                myApp.alert('Preencha todos os campos.');
-            }else{
-
-                if ($$('#txtnomevisitante').val()!="") {
-                    enviarvisitante();
+            //verifica se o condominio é sem bloco
+            if ($("#blocolistportariavisitantes").is(":visible")) {
+                if ($$('#blocolistportariavisitantes').val()=="" || $$('#domiciliolistportariavisitantes').val()=="") {
+                    myApp.alert('Preencha todos os campos.');
                 }else{
-                    myApp.alert('Preencha todos os campos.');    
+
+                    if ($$('#txtnomevisitante').val()!="") {
+                        enviarvisitante();
+                    }else{
+                        myApp.alert('Preencha todos os campos.');    
+                    }
+                }
+            }else{
+                if ($$('#domiciliolistportariavisitantes').val()=="") {
+                    myApp.alert('Preencha todos os campos.');
+                }else{
+
+                    if ($$('#txtnomevisitante').val()!="") {
+                        enviarvisitante();
+                    }else{
+                        myApp.alert('Preencha todos os campos.');    
+                    }
                 }
             }
         }else{
@@ -7170,7 +7191,12 @@ function enviarvisitante()
         }else{
             if ($('#txtvisitantecondominio:checked').val()!="1"){
                 $$idcondominio = localStorage.getItem("condominioId");
-                $$idbloco = $$('#blocolistportariavisitantes').val();
+                if ($("#blocolistportariavisitantes").is(":visible")) {
+                    $$idbloco = $$('#blocolistportariavisitantes').val();
+                }else{
+                    $$idbloco = $("#blocolistportaria.sembloco").val();
+                }
+                
                 $$iddomicilio =$$('#domiciliolistportariavisitantes').val();
                 $$portaria = true;
             }else{
