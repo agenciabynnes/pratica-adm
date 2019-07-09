@@ -1,111 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" android-versionCode="15" ios-CFBundleVersion="1.1.1" version="1.1.1" id="com.pratica.ios"  >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" android-versionCode="16" ios-CFBundleVersion="1.1.2" version="1.1.2" id="com.pratica.android">
 
 <name>Prática</name>
 <description>Moradores e condomínios conectados</description>
 <author>Agência Bynnes</author>
 <content src="index.html"/>
 <preference name="android-build-tool" value="gradle" />
-<platform name="android" >
-    <allow-intent href="*://*.youtube.com/*" />
-    <allow-intent href="*://*.player.tv.br/*" />
-    <allow-intent href="*://*.pagseguro.uol.com.br/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <allow-navigation href="data:*"/>
-    <allow-navigation href="*://*.youtube.com/*" />
-    <allow-navigation href="*://*.player.tv.br/*" />
-    <allow-navigation href="*://*.pagseguro.uol.com.br/*" />
-    <access origin="*"/>
-    <access origin="https://*.youtube.com" />
-    <access origin="https://*.aptohome.com.br"/>
-    <access origin="https://*.pagseguro.uol.com.br"/>
-    <access origin="https://*.phonegap.com"/>
-    <access origin="https://*.googleapis.com"/>
-    <access origin="https://*.gstatic.com"/>
-    <access origin="https://*.google.com"/>
-    <access origin="https://*.googleusercontent.com"/>
-    <access origin="http://*.youtube.com" />
-    <access origin="http://*.aptohome.com.br"/>
-    <access origin="http://*.pagseguro.uol.com.br"/>
-    <access origin="http://*.phonegap.com"/>
-    <access origin="http://*.googleapis.com"/>
-    <access origin="http://*.gstatic.com"/>
-    <access origin="http://*.google.com"/>
-    <access origin="http://*.googleusercontent.com"/>
-    <access origin="http://*.player.tv.br"/>
-</platform>
-<platform name="ios" >
-    <allow-intent href="http://*/*"/>
-    <allow-intent href="https://*/*"/>
-    <allow-intent href="http://*.youtube.com" />
-    <allow-intent href="https://*.youtube.com" />
-    <allow-intent href="http://*.player.tv.br" />
-    <allow-intent href="http://*.pagseguro.uol.com.br" />
-    <allow-intent href="https://*.pagseguro.uol.com.br" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <allow-navigation href="*/*"/>
-    <allow-navigation href="*/*"/>
-    <allow-navigation href="data:*"/>
-    <allow-navigation href="https://*.youtube.com" />
-    <allow-navigation href="https://*.youtube.com" />
-    <allow-navigation href="https://*.player.tv.br" />
-    <allow-navigation href="http://*.pagseguro.uol.com.br" />
-    <allow-navigation href="https://*.pagseguro.uol.com.br" />
-    <allow-navigation href="*"/>
-    <access origin="*"/>
-    <access origin="https://*.youtube.com" />
-    <access origin="https://*.aptohome.com.br"/>
-    <access origin="https://*.pagseguro.uol.com.br"/>
-    <access origin="https://*.phonegap.com"/>
-    <access origin="https://*.googleapis.com"/>
-    <access origin="https://*.gstatic.com"/>
-    <access origin="https://*.google.com"/>
-    <access origin="https://*.googleusercontent.com"/>
-    <access origin="http://*.youtube.com" />
-    <access origin="http://*.aptohome.com.br"/>
-    <access origin="http://*.pagseguro.uol.com.br"/>
-    <access origin="http://*.phonegap.com"/>
-    <access origin="http://*.googleapis.com"/>
-    <access origin="http://*.gstatic.com"/>
-    <access origin="http://*.google.com"/>
-    <access origin="http://*.googleusercontent.com"/>
-    <access origin="http://*.player.tv.br"/>
-    <access origin='https://cordova.apache.org' minimum-tls-version='TLSv1.1' requires-forward-secrecy='false' requires-certificate-transparency='true' />
-    <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
-</platform>
-<preference name="phonegap-version" value="cli-6.2.0" />
-<preference name="xwalkMultipleApk" value="false" />
-<plugin name="cordova-plugin-crosswalk-webview"/>
-<plugin name="cordova-plugin-app-version" spec="0.1.9"/>
-<plugin name="cordova-plugin-camera" spec="2.3.0">
-<variable name="CAMERA_USAGE_DESCRIPTION" value="Para envio de fotos pela câmera"/>
-<variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Para envio de fotos pela galeria"/>
-</plugin>
-<plugin name="cordova-plugin-compat" spec="1.0.0"/>
-<plugin name="cordova-plugin-device" spec="1.1.2"/>
-<plugin name="cordova-plugin-dialogs" spec="1.2.1"/>
+<access origin="*"/>
+<allow-navigation href="*"/>
+<allow-intent href="*"/>
+
+<preference name="phonegap-version" value="cli-6.5.0" />
+
+<plugin name="cordova-plugin-device" spec="^1.1.2"/>
+<plugin name="cordova-plugin-network-information" spec="^1.2.1"/>
+<plugin name="cordova-plugin-inappbrowser" spec="^1.4.0"/>
+<plugin name="cordova-plugin-whitelist" spec="^1.2.2"/>
+
 <plugin name="cordova-plugin-file" spec="4.2.0"/>
-<plugin name="cordova-plugin-file-transfer" spec="1.5.1"/>
-<plugin name="cordova-plugin-geolocation" spec="2.2.0"/>
-<plugin name="cordova-plugin-google-analytics" spec="1.8.3"/>
-<plugin name="cordova-plugin-inappbrowser" spec="1.4.0"/>
-<plugin name="cordova-plugin-media" spec="2.3.0"/>
-<plugin name="cordova-plugin-network-information" spec="1.2.1"/>
-<plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
 <plugin name="cordova-plugin-statusbar" spec="2.1.3"/>
-<plugin name="cordova-plugin-whitelist" spec="1.2.2"/>
-<plugin name="cordova-plugin-x-socialsharing" spec="5.1.8"/>
-<plugin name="es6-promise-plugin" spec="4.1.0"/>
 <plugin name="ionic-plugin-keyboard" spec="2.2.1"/>
-<plugin name="phonegap-plugin-push" spec="1.6.4">
-<variable name="SENDER_ID" value="10572585588"/>
+<plugin name="cordova-plugin-dialogs" spec="1.2.1"/>
+
+<plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
+
+<!-- iOS 1.8.4 e Android 1.6.4 | alterar notificationTemplate framework7.js -->
+<plugin name="phonegap-plugin-push" spec="1.11.1">
+    <variable name="SENDER_ID" value="214666097431"/>
 </plugin>
+
+<plugin name="cordova-plugin-app-version" spec="0.1.9"/>
+<plugin name="cordova-plugin-file-transfer" spec="1.5.1"/>
+<plugin name="cordova-plugin-media" spec="2.3.0"/>
+<plugin name="cordova-plugin-android-permissions"/>
+
+<plugin name="cordova-plugin-camera" spec="2.4.1">
+    <variable name="CAMERA_USAGE_DESCRIPTION" value="Usamos a câmera para tirar fotos nas aberturas de ocorrências" />
+    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Usamos a galeria para envio de fotos nas aberturas de ocorrências" />
+</plugin>
+<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+    <string>Usamos a câmera para tirar fotos nas aberturas de ocorrências</string>
+</edit-config>
+<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+    <string>Usamos a câmera para tirar fotos nas aberturas de ocorrências</string>
+</edit-config>
+<edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+    <string>Precisamos de acesso a galeria para salvar as fotos de aberturas de ocorrências</string>
+</edit-config>
+
 <preference  name="AutoHideSplashScreen" value="true"/>
 <preference  name="SplashScreenDelay" value="3000"/>
 <preference  name="FadeSplashScreen" value="true"/>
@@ -115,17 +57,39 @@
 <preference  name="DisallowOverscroll" value="true"/>
 <preference  name="UIWebViewBounce" value="false"/>
 <preference  name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root"/>
+<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
 <platform name="android" >
-    <preference name="android-minSdkVersion" value="16"/>
-    <preference name="android-targetSdkVersion" value="19"/>
+    <resource-file src="google-services.json" target="google-services.json" />
+    <!-- para celular usar 17 e tablet 16 (min. android 4.1) -->
+    <!--<preference name="android-minSdkVersion" value="16"/>-->
+    <preference name="android-minSdkVersion" value="17"/>
+    <preference name="android-targetSdkVersion" value="28"/>
     <preference name="android-installLocation" value="auto"/>
-    <preference name="android-signed" value="true"/>
+    <preference name="Fullscreen" value="false"/>
+    <preference name="Orientation" value="default"/>
     <preference name="AndroidLaunchMode" value="singleTop"/>
+    <preference name="android-signed" value="true"/>
 </platform>
+
 <platform name="ios" >
-    <preference name="deployment-target" value="8.0"/>
+    <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist" />
     <preference name="ios-configuration" value="production"/>
+    <preference name="deployment-target" value="8.0"/>
+    <preference name="Orientation" value="all"/>
 </platform>
+
+<plugin name="cordova-plugin-geolocation" spec="^2.2.0">
+    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Usamos a sua localização, quando autorizado, para enviar alertas de chegada para portaria" />
+</plugin>
+<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription" platform="ios" overwrite="true">
+    <string>Usamos a sua localização, quando autorizado, para enviar alertas de chegada para portaria</string>
+</config-file>
+<config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription" platform="ios" overwrite="true">
+    <string>Usamos a sua localização, quando autorizado, para enviar alertas de chegada para portaria</string>
+</config-file>
+<preference name="GEOLOCATION_USAGE_DESCRIPTION" default="Usamos a sua localização, quando autorizado, para enviar alertas de chegada para portaria" />
+
 <splash platform="android" src="package-assets/splash-android-720-960.png" density="xhdpi" width="720" height="960" orientation="portrait"/>
 <splash platform="android" src="package-assets/splash-android-480-640.png" density="hdpi" width="480" height="640" orientation="portrait"/>
 <splash platform="android" src="package-assets/splash-android-320-426.png" density="ldpi" width="320" height="426" orientation="portrait"/>
@@ -151,6 +115,7 @@
 <icon platform="android" src="package-assets/icon-48.png" density="mdpi" width="48" height="48"/>
 <icon platform="android" src="package-assets/icon-72.png" density="hdpi" width="72" height="72"/>
 <icon platform="android" src="package-assets/icon-96.png" density="xhdpi" width="96" height="96"/>
+
 <icon platform="ios" src="package-assets/icon-apple-29.png" width="29" height="29"/>
 <icon platform="ios" src="package-assets/icon-apple-40.png" width="40" height="40"/>
 <icon platform="ios" src="package-assets/icon-apple-50.png" width="50" height="50"/>
@@ -168,6 +133,7 @@
 <icon platform="ios" src="package-assets/icon-apple-152.png" width="152" height="152"/>
 <icon platform="ios" src="package-assets/icon-apple-167.png" width="167" height="167"/>
 <icon platform="ios" src="package-assets/icon-apple-180.png" width="180" height="180"/>
+
 <config-file platform="android" parent="/manifest/application" mode="merge"> 
     <activity android:launchMode="singleTop" />
 </config-file>

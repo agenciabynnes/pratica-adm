@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src gap://ready *; child-src *;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' data: blob: filesystem: ws: gap://ready file: cdvfile: https://ssl.gstatic.com *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src * gap://ready; child-src *;">
 
     <link rel="stylesheet" href="framework7/css/framework7.material.css">
     <link rel="stylesheet" href="framework7/css/framework7.material.colors.css">
@@ -56,46 +56,55 @@
                         <a href="#index" class="panel-close"><i class="icon fa fa-home fa-lg"></i>HOME</a>
                     </li>
                     <li class="menucomunicado">
-                        <a href="#comuncondominio" class="panel-close" onclick="comuncondominio();PageButtonClicked('Comunicados')"><i class="icon fa fa-comment fa-lg color-blue"></i>COMUNICADOS CONDOMÍNIO</a>
+                        <a href="#comuncondominio" class="panel-close" onclick="comuncondominio();"><i class="icon fa fa-comment fa-lg color-blue"></i>COMUNICADOS</a>
                     </li>
+                    <!--<li class="menuinterfone">
+                        <a href="#interfone" class="panel-close" onclick="interfone();"><i class="icon fa fa-volume-control-phone fa-lg color-green"></i>INTERFONE</a>
+                    </li>-->
                     <li class="menualerta">
-                        <a href="#alertadechegada" class="panel-close" onclick="PageButtonClicked('Comunicados')"><i class="icon fa fa-car fa-lg color-amber"></i>AVISO DE CHEGADA</a>
+                        <a href="#alertadechegada" class="panel-close" onclick="alertadechegada();"><i class="icon fa fa-car fa-lg color-amber"></i>AVISO DE CHEGADA</a>
+                    </li>
+                    <li class="menuespaco">
+                        <a href="#agendamentodeespaco" class="panel-close agendamentodeespaco" onclick="agendamentodeespaco();"><i class="icon fa fa-calendar fa-lg color-red"></i>AGENDAMENTO DE ESPAÇOS</a>
+                    </li>
+                    <li class="menuboletos">
+                        <a href="#boletos" class="panel-close" onclick="boleto();"><i class="icon fa fa-file-text-o fa-lg color-lightgreen"></i>BOLETOS</a>
                     </li>
                     <!--<li class="menupagamentos">
-                        <a href="#pagamentos" class="panel-close" onclick="pagamentos();PageButtonClicked('Pagamentos')"><i class="icon fa fa-credit-card fa-lg color-lightgreen"></i>PAGAMENTO DE CONTAS</a>
+                        <a href="#pagamentos" class="panel-close" onclick="pagamentos();"><i class="icon fa fa-credit-card fa-lg color-lightgreen"></i>PAGAMENTO DE CONTAS</a>
                     </li>-->
-                    <li class="menuespaco">
-                        <a href="#agendamentodeespaco" class="panel-close agendamentodeespaco" onclick="agendamentodeespaco();PageButtonClicked('Agendamento de Espaço')"><i class="icon fa fa-calendar fa-lg color-red"></i>AGENDAMENTO DE ESPAÇOS</a>
-                    </li>
                     <li class="menuocorrencia">
-                        <a href="#livroocorrencias" class="panel-close" onclick="livroocorrencias();PageButtonClicked('Livro de Ocorrências')"><i class="icon fa fa-leanpub fa-lg color-gray"></i>LIVRO DE OCORRÊNCIAS</a>
+                        <a href="#livroocorrencias" class="panel-close" onclick="livroocorrencias();"><i class="icon fa fa-leanpub fa-lg color-gray"></i>LIVRO DE OCORRÊNCIAS</a>
                     </li>
                     <li class="menucadastros">
-                        <a href="#cadastros" class="panel-close" onclick=""><i class="icon fa fa-male fa-lg color-brown"></i>CADASTROS DO CONDOMÍNIO</a>
+                        <a href="#cadastros" class="panel-close"><i class="icon fa fa-male fa-lg color-brown"></i>CADASTROS</a>
                     </li>
                     <li class="menutransparencia">
-                        <a href="#transparenciadecontas" class="panel-close" onclick="transparenciadecontas();PageButtonClicked('Transparência de Contas')"><i class="icon fa fa-calculator fa-lg color-orange"></i>DOCUMENTOS</a>
+                        <a href="#transparenciadecontastipo" onclick="transparenciadecontastipo();" class="panel-close"><i class="icon fa fa-calculator fa-lg color-orange"></i>DOCUMENTOS</a>
+                    </li>
+                    <li class="menuenquetes">
+                        <a href="#enquetes" class="panel-close" onclick="enquetes();"><i class="icon fa fa-check-square-o fa-lg color-deeporange"></i>ENQUETES</a>
                     </li>
                     <li class="menuanuncios">
-                        <a href="#muraldeanuncios" class="panel-close" onclick="muraldeanuncios();PageButtonClicked('Mural de Anúncios')"><i class="icon fa fa-shopping-cart fa-lg color-teal"></i>MURAL DE ANÚNCIOS</a>
+                        <a href="#muraldeanuncios" class="panel-close" onclick="muraldeanuncios();"><i class="icon fa fa-shopping-cart fa-lg color-teal"></i>MURAL DE ANÚNCIOS</a>
                     </li>
                     <li class="menubanner">
-                        <a href="#banner" class="panel-close" onclick="banner();PageButtonClicked('Clube de Compras')"><i class="icon fa fa-tags fa-lg color-purple"></i>CLUBE DE COMPRAS</a>
+                        <a href="#banner" class="panel-close" onclick="banner();"><i class="icon fa fa-tags fa-lg color-purple"></i>CLUBE DE COMPRAS</a>
                     </li>
                     <li class="menucamera">
-                        <a href="#camerasdeseguranca" class="panel-close" onclick="camerasdeseguranca();PageButtonClicked('Câmeras de Segurança')"><i class="icon fa fa-video-camera fa-lg color-bluegray"></i>CÂMERAS DE SEGURANÇA</a>
+                        <a href="#camerasdeseguranca" class="panel-close" onclick="camerasdeseguranca();"><i class="icon fa fa-video-camera fa-lg color-bluegray"></i>CÂMERAS DE SEGURANÇA</a>
                     </li>
                     <li class="menuservico">
-                        <a href="#servico" class="panel-close" onclick="servico();PageButtonClicked('Serviços Terceirizados')"><i class="icon fa fa-phone fa-lg color-deeppurple"></i>SERVIÇOS TERCEIRIZADOS</a>
+                        <a href="#servico" class="panel-close" onclick="servico();"><i class="icon fa fa-phone fa-lg color-deeppurple"></i>SERVIÇOS TERCEIRIZADOS</a>
                     </li>
                     <li class="menucronograma">
-                        <a href="#cronograma" class="panel-close" onclick="cronograma();PageButtonClicked('Equipe do Condomínio')"><i class="icon fa fa-users fa-lg color-green"></i>EQUIPE DO CONDOMÍNIO</a>
+                        <a href="#cronograma" class="panel-close" onclick="cronograma();"><i class="icon fa fa-users fa-lg color-green"></i>EQUIPE DO CONDOMÍNIO</a>
                     </li>
                     <li>
-                        <a href="#videos" class="panel-close" onclick="videos();PageButtonClicked('Ajuda')"><i class="icon fa fa-question-circle fa-lg color-deeporange"></i>AJUDA</a>
+                        <a href="#videos" class="panel-close" onclick="videos();"><i class="icon fa fa-question-circle fa-lg color-deeporange"></i>AJUDA</a>
                     </li>
                     <li>
-                        <a href="#" class="panel-close sair" onclick="sair();PageButtonClicked('Sair')"><i class="icon fa fa-sign-out fa-lg color-black"></i>SAIR</a>
+                        <a href="#" class="panel-close sair" onclick="sair();"><i class="icon fa fa-sign-out fa-lg color-black"></i>SAIR DO APP</a>
                     </li>
                     <div class="version color-indigo"></div>
                 </ul>
@@ -127,46 +136,76 @@
               <div id="menuhome" class="menuhome list-block nomargin font13">
                 <ul>
                     <li class="menucomunicado">
-                        <a href="#comuncondominio" onclick="comuncondominio();PageButtonClicked('Comunicados')" class="item-link"><i class="icon fa fa-comment fa-3x badgecomunicado color-blue"></i><br>COMUNICADOS<br>DO CONDOMÍNIO</a>
+                        <a href="#comuncondominio" onclick="comuncondominio();" class="item-link"><i class="icon fa fa-comment fa-3x badgecomunicado color-blue"></i><br>COMUNICADOS<br><small class="labelmoradorcomunlegend">condomínio | portaria | morador</small></a>
                     </li>
+                    <!--<li class="menuinterfone">
+                        <a href="#interfone" onclick="interfone();" class="item-link"><i class="icon fa fa-volume-control-phone fa-3x  color-green"></i><br>INTERFONE DO<br>CONDOMÍNIO</a>
+                    </li>-->
                     <li class="menualerta">
-                        <a href="#alertadechegada" class="item-link" onclick="PageButtonClicked('Aviso de Chegada')"><i class="icon fa fa-car fa-3x color-amber"></i><br>AVISO<br>DE CHEGADA</a>
+                        <a href="#alertadechegada" class="item-link" onclick="alertadechegada();"><i class="icon fa fa-car fa-3x color-amber"></i><br>AVISO<br>DE CHEGADA</a>
+                    </li>
+                    <li class="menuespaco">
+                        <a href="#agendamentodeespaco" class="item-link agendamentodeespaco" onclick="agendamentodeespaco();"><i class="icon fa fa-calendar fa-3x badgeespaco color-red"></i><br>AGENDAMENTO<br>DE ESPAÇOS</a>
+                    </li>
+                    <li class="menuboletos">
+                        <a href="#boletos" onclick="boleto();" class="item-link"><i class="icon fa fa-file-text-o fa-3x color-lightgreen"></i><br>BOLETOS<br>DO CONDOMÍNIO</a>
                     </li>
                     <!--<li class="menupagamentos">
-                        <a href="#pagamentos" onclick="pagamentos();PageButtonClicked('Pagamentos')" class="item-link"><i class="icon fa fa-credit-card fa-3x color-lightgreen"></i><br>PAGAMENTO<br>DE CONTAS</a>
+                        <a href="#pagamentos" onclick="pagamentos();" class="item-link"><i class="icon fa fa-credit-card fa-3x color-lightgreen"></i><br>PAGAMENTO<br>DE CONTAS</a>
                     </li>-->
-                    <li class="menuespaco">
-                        <a href="#agendamentodeespaco" class="item-link agendamentodeespaco" onclick="agendamentodeespaco();PageButtonClicked('Agendamento de Espaços')"><i class="icon fa fa-calendar fa-3x badgeespaco color-red"></i><br>AGENDAMENTO<br>DE ESPAÇOS</a>
-                    </li>
                     <li class="menuocorrencia">
-                        <a href="#livroocorrencias" class="item-link" onclick="livroocorrencias();PageButtonClicked('Livro de Ocorrências')"><i class="icon fa fa-leanpub fa-3x badgeocorrencia color-gray"></i><br>LIVRO DE<br>OCORRÊNCIAS</a>
+                        <a href="#livroocorrencias" class="item-link" onclick="livroocorrencias();"><i class="icon fa fa-leanpub fa-3x badgeocorrencia color-gray"></i><br>LIVRO DE<br>OCORRÊNCIAS</a>
                     </li>
                     <li class="menucadastros">
                         <a href="#cadastros" class="item-link"><i class="icon fa fa-male fa-3x color-brown"></i><br>CADASTROS<br>DO CONDOMÍNIO</a>
                     </li>
                     <li class="menutransparencia">
-                        <a href="#transparenciadecontas" class="item-link" onclick="transparenciadecontas();PageButtonClicked('Transparência de Contas')"><i class="icon fa fa-calculator fa-3x badgetransparencia color-orange"></i><br>DOCUMENTOS<br>DO CONDOMÍNIO</a>
+                        <a href="#transparenciadecontastipo" class="item-link" onclick="transparenciadecontastipo();"><i class="icon fa fa-calculator fa-3x badgetransparencia color-orange"></i><br>DOCUMENTOS<br>DO CONDOMÍNIO</a>
+                    </li>
+                    <li class="menuenquetes">
+                        <a href="#enquetes" class="item-link" onclick="enquetes();"><i class="icon fa fa-check-square-o fa-3x color-deeporange"></i><br>ENQUETES<br>DO CONDOMÍNIO</a>
                     </li>
                     <li class="menuanuncios">
-                        <a href="#muraldeanuncios" onclick="muraldeanuncios();PageButtonClicked('Mural de Anúncios')" class="item-link" ><i class="icon fa fa-shopping-cart fa-3x color-teal"></i><br>MURAL<br>DE ANÚNCIOS</a>
+                        <a href="#muraldeanuncios" onclick="muraldeanuncios();" class="item-link" ><i class="icon fa fa-shopping-cart fa-3x color-teal"></i><br>MURAL<br>DE ANÚNCIOS</a>
                     </li>
                     <li class="menubanner">
-                        <a href="#banner" class="item-link" onclick="banner();PageButtonClicked('Clube de Compras')"><i class="icon fa fa-tags fa-3x color-purple"></i><br>CLUBE DE<br>COMPRAS</a>
+                        <a href="#banner" class="item-link" onclick="banner();"><i class="icon fa fa-tags fa-3x color-purple"></i><br>CLUBE DE<br>COMPRAS</a>
                     </li>
                     <li class="menucamera">
-                        <a href="#camerasdeseguranca" class="item-link" onclick="camerasdeseguranca();PageButtonClicked('Câmeras de Segurança')"><i class="icon fa fa-video-camera fa-3x color-bluegray"></i><br>CÂMERAS DE<br>SEGURANÇA</a>
+                        <a href="#camerasdeseguranca" class="item-link" onclick="camerasdeseguranca();"><i class="icon fa fa-video-camera fa-3x color-bluegray"></i><br>CÂMERAS DE<br>SEGURANÇA</a>
                     </li>
                     <li class="menuservico">
-                        <a href="#servico" class="item-link" onclick="servico();PageButtonClicked('Serviços Terceirizados')"><i class="icon fa fa-phone fa-3x color-deeppurple"></i><br>SERVIÇOS<br>TERCEIRIZADOS</a>
+                        <a href="#servico" class="item-link" onclick="servico();"><i class="icon fa fa-phone fa-3x color-deeppurple"></i><br>SERVIÇOS<br>TERCEIRIZADOS</a>
                     </li>
                     <li class="menucronograma">
-                        <a href="#cronograma" class="item-link" onclick="cronograma();PageButtonClicked('Equipe do Condomínio')"><i class="icon fa fa-users fa-3x color-green"></i><br>EQUIPE DO<br>CONDOMÍNIO</a>
+                        <a href="#cronograma" class="item-link" onclick="cronograma();"><i class="icon fa fa-users fa-3x color-green"></i><br>EQUIPE DO<br>CONDOMÍNIO</a>
                     </li>
                     <!--<li class="menusair">
-                        <a href="#" class="sair" onclick="sair();"><i class="icon fa fa-sign-out fa-3x"></i><br>SAIR</a>
+                        <a href="#" class="sair" onclick="sair();"><i class="icon fa fa-sign-out fa-3x"></i><br>SAIR DO<br>APP</a>
                     </li>-->
                   </ul>
               </div>
+            </div>
+
+            <!-- boleto conteudo -->
+            <div data-page="boletos" class="page cached">
+
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                    <div class="center">BOLETOS</div>
+                    <div class="right"><a href="#" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+                    <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+                </div>
+              </div>
+
+
+              <div class="page-content">
+                <div class="content-block boletos-100">  
+                  <iframe src="" class="iframe-boleto"></iframe>
+                </div>
+              </div>
+
             </div>
 
             <!-- pagamentos -->
@@ -284,19 +323,19 @@
               </div>
             </div>
 
-
+            <!-- home da portaria -->
             <div class="pageportaria invisivel">
               <div class="pageportariahome">
                 <div class="subnavbar toolbar tabbar submenuhome">
                   <div class="buttons-row">
-                    <a href="" class="button tab-link active">Comunicados</a>
+                    <a href="#" class="tab-link active"><i class="icon fa badgecomunportariahome"></i>Comunicados</a>
                   </div>
                 </div>
                 <a href="#inserircomunportaria" id="inserircomunportaria" class="inserircomunportaria floating-button bg-green">
                   <i class="icon icon-plus"></i>
                 </a>
 
-                <div class="page-content comunportariahome pull-to-refresh-content">
+                <div class="page-content comunportariahome">
                   <div class="pull-to-refresh-layer">
                     <div class="preloader"></div>
                     <div class="pull-to-refresh-arrow"></div>
@@ -304,11 +343,15 @@
                   <div class="list-block media-list">
                     <ul id="comunportariahome-cont"></ul>
                   </div>
+                  <!-- Preloader -->
+                  <div class="infinite-scroll-preloader">
+                    <div class="preloader"></div>
+                  </div>
                 </div>
               </div>
 
               <div class="pageportariahome">
-                <div class="pageportariahomecentro">
+                <div class="pageportariahomecentro avisodechegadaportaria">
                   <div class="subnavbar toolbar tabbar submenuhome">
                     <div class="buttons-row">
                       <a href="" class="button tab-link active">Avisos de chegada</a>
@@ -325,7 +368,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="pageportariahomecentro">
+                <div class="pageportariahomecentro alertaportariaportaria">
                   <div class="subnavbar toolbar tabbar submenuhome submenuhomealertavisitantes">
                     <div class="buttons-row">
                       <a href="" class="button tab-link active">Alertas portaria</a>
@@ -445,7 +488,7 @@
                           <div class="item-inner">
                           <div class="item-title label">Data de Nasc.</div>
                             <div class="item-input">
-                              <input type="date" onKeyUp="tabenter(event,getElementById('profilephonenumber'))" placeholder="Informe sua data de nasc." id="profilebirthdate" value="">
+                              <input type="date" onKeyUp="tabenter(event,getElementById('profilephonenumber'))" placeholder="dd/mm/aaaa" id="profilebirthdate" value="" onchange="this.className=(this.value!=''?'has-value':'')">
                             </div>
                           </div>
                         </div>
@@ -465,7 +508,7 @@
                           <div class="item-inner">
                           <div class="item-title label">Celular</div>
                             <div class="item-input">
-                              <input type="tel" placeholder="Informe seu celular" onKeyUp="tabenter(event,getElementById('profilegender'))" id="profilecellphone" value="">
+                              <input type="tel" class="phone" placeholder="Informe seu celular" onKeyUp="tabenter(event,getElementById('profilegender'))" id="profilecellphone" value="">
                             </div>
                           </div>
                         </div>
@@ -663,8 +706,8 @@
               <div class="navbar-inner">
                 <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
                   <div class="center">AVISO DE CHEGADA</div>
-                  <div class="right"><a href="#" class="back link icon-only"><i class="icon icon-back"></i></a></div>
-                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+                  <div class="right"><a href="index.html" class="link external icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="index.html" class="link external icon-only"><i class="icon fa fa-home"></i></a></div>
               </div>
             </div>
 
@@ -728,16 +771,18 @@
                 </div>
 
                 <div class="list-block nomargin tablet">
-                    <div class="row item-content">
+                  <div class="row item-content label-agendamento">Legenda calendário</div>
+                    <div class="row item-content label-icon-agendamento-first">
                         <!-- Each "cell" has col-[widht in percents] class -->
                         <div class="col-50">
-                            <div class="legendaespaco bg-indigo"></div><div class="legendaespacotext">Data atual</div>
+                            <div class="legendaespaco bg-indigo"></div><div class="legendaespacotext">Data selecionada</div>
                         </div>
                         <div class="col-50">
                             <div class="legendaespaco bg-red"></div><div class="legendaespacotext">Com reserva</div>
                         </div>
                     </div>
-                    <div class="row item-content">
+                    <div class="row item-content label-agendamento" style="margin-top: 10px;">Legenda agendamentos</div>
+                    <div class="row item-content label-icon-agendamento">
                         <!-- Each "cell" has col-[widht in percents] class -->
                         <div class="col-50">
                             <div class="legendaespaco bg-amber"></div><div class="legendaespacotext">Agendado</div>
@@ -802,7 +847,7 @@
                       <li class="blocolistagendamentoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Bloco</div>
+                          <div class="item-title label labelbloco">Bloco</div>
                             <div class="item-input">
                               <select id="blocolistagendamento" onchange="listDomicilioAgendamento();" class="blocolistagendamento" required></select>
                             </div>
@@ -813,7 +858,7 @@
                       <li class="domiciliolistagendamentoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Apto</div>
+                          <div class="item-title label labelapto">Apto</div>
                             <div class="item-input">
                               <select id="domiciliolistagendamento" onChange="listMoradoresAgendamento();" class="domiciliolistagendamento"></select>
                             </div>
@@ -824,7 +869,7 @@
                       <li class="moradorlistagendamentoli">
                         <div class="item-content">
                           <div class="item-inner">
-                            <div class="item-title label">Morador</div>
+                            <div class="item-title label labelmorador">Morador</div>
                               <div class="item-input">
                                 <select id="moradorlistagendamento" class="moradorlistagendamento"></select>
                               </div>
@@ -842,7 +887,23 @@
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li class="agenhorainiperi">
+                      <div class="item-content">
+                        <div class="item-inner">
+                        <div class="item-title label">Período</div>
+                          <div class="item-input">
+                            <!--<input type="hidden" value="" id="horainicoagendamento">
+                            <input type="hidden" value="" id="horaterminoagendamento">-->
+                            <select id="turnoinicoagendamento">
+                              <option value="" selected="selected">Selecione um período</option>
+                              <option value="08:00">Manhã</option>
+                              <option value="14:00">Tarde</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="agenhoraini">
                       <div class="item-content">
                         <div class="item-inner">
                         <div class="item-title label">Hora início</div>
@@ -878,7 +939,7 @@
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li class="agenhorater">
                       <div class="item-content">
                         <div class="item-inner">
                         <div class="item-title label">Hora término</div>
@@ -953,7 +1014,6 @@
             </div>
           </div>
 
-
           <!-- cadastros -->
           <div data-page="cadastros" class="page cached">
 
@@ -970,17 +1030,17 @@
               <div class="content-block">
                 <div class="row">
                   <div class="col-100 list-cadastros menucadastrosmorador">
-                    <a href="#morador" onclick="morador();PageButtonClicked('Cadastro de Morador')" class="item-link item-cadastros"><i class="icon fa fa-users fa-3x"></i><br>CADASTRO DE<br>MORADORES</a>
+                    <a href="#morador" onclick="morador();" class="item-link item-cadastros labelmoradoricon"><i class="icon fa fa-users fa-3x"></i><br>CADASTRO DE<br>MORADORES</a>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-100 list-cadastros menecadastrosvisitante">
-                    <a href="#visitante" onclick="visitante();PageButtonClicked('Cadastro de Visitante')" class="item-link item-cadastros"><i class="icon fa fa-user fa-3x"></i><br>CADASTRO DE<br>VISITANTES</a>
+                    <a href="#visitante" onclick="visitante();" class="item-link item-cadastros"><i class="icon fa fa-user fa-3x"></i><br>CADASTRO DE<br>VISITANTES</a>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-100 list-cadastros menucadastrosveiculo">
-                    <a href="#veiculo" onclick="veiculo();PageButtonClicked('Cadastro de Veículo')" class="item-link item-cadastros"><i class="icon fa fa-car fa-3x"></i><br>CADASTRO DE<br>VEÍCULOS</a>
+                    <a href="#veiculo" onclick="veiculo();" class="item-link item-cadastros"><i class="icon fa fa-car fa-3x"></i><br>CADASTRO DE<br>VEÍCULOS</a>
                   </div>
                 </div>
               </div>
@@ -1426,8 +1486,8 @@
             </div>
 
             <div class="page-content">
-                <div class="list-block media-list tablet">
-                  <ul id="camerasdeseguranca-cont"></ul>
+                <div class="content-block tablet">
+                  <div class="row no-gutter" id="camerasdeseguranca-cont"></div>
                 </div>
             </div>
           </div>
@@ -1443,6 +1503,52 @@
             </div>
           </div>
 
+          <!-- documentos tipo -->
+          <div data-page="transparenciadecontastipo" class="page cached">
+
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                  <div class="center">TIPOS DE DOCUMENTOS</div>
+                  <div class="right"><a href="#index" class="link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+              </div>
+            </div>
+
+            <!-- Floatin Action Button -->
+            <a href="#inserirtransparenciadecontas" id="inserirtransparenciadecontas" class="inserirtransparenciadecontas floating-button bg-green">
+              <i class="icon icon-plus"></i>
+            </a>  
+            <div class="page-content">
+
+              <div id="menuhome" class="menuhome docstipo list-block nomargin font13">
+                <ul>
+                    <li class="docsfinanceiros invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('1');PageButtonClicked('Documentos Financeiros')" class="item-link"><i class="icon fa fa-bar-chart fa-3x color-indigo"></i><br>FINANCEIROS</a>
+                    </li>
+                    <li class="docsprojetos invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('2');PageButtonClicked('Documentos Projetos')" class="item-link"><i class="icon fa fa-building-o fa-3x color-indigo"></i><br>PROJETOS</a>
+                    </li>
+                    <li class="docsinformativos invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('3');PageButtonClicked('Documentos Informativos')" class="item-link"><i class="icon fa fa-leanpub fa-3x color-indigo"></i><br>INFORMATIVOS</a>
+                    </li>
+                    <li class="docseditais invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('4');PageButtonClicked('Documentos Editais')" class="item-link"><i class="icon fa fa-users fa-3x color-indigo"></i><br>EDITAIS</a>
+                    </li>
+                    <li class="docsatas invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('5');PageButtonClicked('Documentos Atas')" class="item-link"><i class="icon fa fa-pencil-square-o fa-3x color-indigo"></i><br>ATAS</a>
+                    </li>
+                    <li class="docsregulamentos invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('6');PageButtonClicked('Documentos Regulamentos')" class="item-link"><i class="icon fa fa-files-o fa-3x color-indigo"></i><br>REGULAMENTOS</a>
+                    </li>
+                    <li class="docsdiversos invisivel">
+                        <a href="#transparenciadecontas" onclick="transparenciadecontas('7');PageButtonClicked('Documentos Diversos')" class="item-link"><i class="icon fa fa-file-text-o fa-3x color-indigo"></i><br>DIVERSOS</a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+
           <!-- transparencia de contas -->
           <div data-page="transparenciadecontas" class="page cached">
 
@@ -1450,25 +1556,24 @@
               <div class="navbar-inner">
                 <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
                   <div class="center">DOCUMENTOS</div>
-                  <div class="right"><a href="#index" class="link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right"><a href="#transparenciadecontastipo" class="link icon-only"><i class="icon icon-back"></i></a></div>
                   <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
               </div>
             </div>
 
-
-          <!-- Floatin Action Button -->
-          <a href="#inserirtransparenciadecontas" id="inserirtransparenciadecontas" class="inserirtransparenciadecontas floating-button bg-green">
-            <i class="icon icon-plus"></i>
-          </a>          
-            <div class="page-content transparenciadecontas pull-to-refresh-content">
-              <div class="pull-to-refresh-layer">
-                <div class="preloader"></div>
-                <div class="pull-to-refresh-arrow"></div>
-              </div>
-                <div class="list-block media-list tablet">
-                  <ul id="transparenciadecontas-cont"></ul>
+            <!-- Floatin Action Button -->
+            <a href="#inserirtransparenciadecontas" id="inserirtransparenciadecontas" class="inserirtransparenciadecontas floating-button bg-green">
+              <i class="icon icon-plus"></i>
+            </a>          
+              <div class="page-content transparenciadecontas pull-to-refresh-content">
+                <div class="pull-to-refresh-layer">
+                  <div class="preloader"></div>
+                  <div class="pull-to-refresh-arrow"></div>
                 </div>
-            </div>
+                  <div class="list-block media-list tablet">
+                    <ul id="transparenciadecontas-cont"></ul>
+                  </div>
+              </div>
           </div>
 
           <!-- transparencia de contas conteudo -->
@@ -1510,9 +1615,29 @@
                       <li>
                         <div class="item-content">
                           <div class="item-inner">
+                            <div class="item-title label">Tipo</div>
+                            <div class="item-input">
+                              <select id="txtidtipotrans" name="txtidtipotrans" required>
+                                <option value="" selected="selected">Escolha um tipo</option>
+                                <option value="1">Financeiros</option>
+                                <option value="2">Projetos</option>
+                                <option value="3">Informativos</option>
+                                <option value="4">Editais</option>
+                                <option value="5">Atas</option>
+                                <option value="6">Regulamentos</option>
+                                <option value="7">Diversos</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </li>   
+
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
                             <div class="item-title label">Título</div>
                             <div class="item-input">
-                            <input type="text" id="txttit" onKeyUp="tabenter(event,getElementById('txtdescricao'))" placeholder="Informe um título" required>
+                            <input type="text" id="txttittrans" onKeyUp="tabenter(event,getElementById('txtdescricaotrans'))" placeholder="Informe um título" required>
                             </div>
                           </div>
                         </div>
@@ -1523,7 +1648,7 @@
                           <div class="item-inner">
                             <div class="item-title label">Descrição</div>
                               <div class="item-input">
-                                  <textarea id="txtdescricao" class="resizable" placeholder="Informe uma descrição" required></textarea>
+                                  <textarea id="txtdescricaotrans" class="resizable" placeholder="Informe uma descrição" required></textarea>
                               </div>
                           </div>
                         </div>
@@ -1571,6 +1696,200 @@
             </div>
           </div>
 
+
+          <!-- enquetes -->
+          <div data-page="enquetes" class="page cached">
+
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                  <div class="center">ENQUETES</div>
+                  <div class="right"><a href="#index" class="link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+              </div>
+            </div>
+
+            <!-- Floatin Action Button -->
+            <a href="#inserirenquetes" id="inserirenquetes" class="inserirenquetes floating-button bg-green">
+              <i class="icon icon-plus"></i>
+            </a>          
+              <div class="page-content enquetes pull-to-refresh-content">
+                <div class="pull-to-refresh-layer">
+                  <div class="preloader"></div>
+                  <div class="pull-to-refresh-arrow"></div>
+                </div>
+                  <div class="list-block media-list tablet">
+                    <ul id="enquetes-cont"></ul>
+                  </div>
+              </div>
+          </div>
+
+          <!-- enquetes conteudo -->
+          <div data-page="enquetescont" class="page cached">
+
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                  <div class="center">RESPOSTAS ENQUETE</div>
+                  <div class="right"><a href="#enquetes" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+              </div>
+            </div>
+
+            <div class="page-content">
+                <div class="list-block media-list tablet">
+                  <ul id="enquetescont-cont"></ul>
+                  <ul id="enquetescontbut-cont">
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <p class="buttons-row">
+                              <a href="#" id="butinserirrespenquetes" class="button button-big button-fill button-raised color-green">ENVIAR RESPOSTA</a>
+                            </p>
+                            <p class="buttons-row">
+                              <a href="#enquetesresultado" onclick="" id="butverresultadoenquetes" class="button button-big button-fill button-raised color-orange">VER RESULTADO</a>
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+
+          <!-- enquetes resultado -->
+          <div data-page="enquetesresultado" class="page cached">
+
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                  <div class="center">RESULTADO ENQUETE</div>
+                  <div class="right"><a href="#enquetescont" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+              </div>
+            </div>
+
+            <div class="page-content">
+                <div class="list-block media-list tablet">
+                  <ul id="enquetesresultado-cont"></ul>
+                </div>
+            </div>
+          </div>
+
+          <!-- inserir enquetes -->
+          <div data-page="inserirenquetes" class="page cached">
+
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                  <div class="center">INSERIR ENQUETE</div>
+                  <div class="right"><a href="#enquetes" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+              </div>   
+            </div>
+
+            <div class="page-content">
+              <div class="content-block">
+                <div class="list-block tablet">
+                  <form method="post" action="#" role="form" id="forminserirenquetes" enctype="multipart/form-data">
+                    <ul>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                          <div class="item-title label">Data Início</div>
+                            <div class="item-input">
+                              <input type="date"  placeholder="dd/mm/aaaa" id="txtdatainicioenquetes" onchange="this.className=(this.value!=''?'has-value':'')">
+                              <!--onfocus="(this.type='datetime-local')" onblur="(this.type='datetime-local')"-->
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                          <div class="item-title label">Data Término (Deixe em branco para encerrar manualmente)</div>
+                            <div class="item-input">
+                              <input type="date" placeholder="dd/mm/aaaa" id="txtdatafimenquetes" onchange="this.className=(this.value!=''?'has-value':'')">
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">Pergunta da Enquete</div>
+                            <div class="item-input">
+                            <input type="text" id="txttitenquetes" onKeyUp="tabenter(event,getElementById('txtresp1'))" placeholder="Informe um título" required>
+                            </div>
+                          </div>
+                        </div>
+                      </li>                 
+                      <!-- Additional "align-top" class for correct textarea alignment -->
+                      <li class="align-top">
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">Resposta 01</div>
+                              <div class="item-input">
+                                  <input type="text" id="txtresp1" onKeyUp="tabenter(event,getElementById('txtresp2'))" placeholder="Informe uma resposta" required>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="align-top">
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">Resposta 02</div>
+                              <div class="item-input">
+                                  <input type="text" id="txtresp2" onKeyUp="tabenter(event,getElementById('txtresp3'))" placeholder="Informe uma resposta" required>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="align-top">
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">Resposta 03</div>
+                              <div class="item-input">
+                                  <input type="text" id="txtresp3" onKeyUp="tabenter(event,getElementById('txtresp4'))" placeholder="Informe uma resposta" required>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="align-top">
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">Resposta 04</div>
+                              <div class="item-input">
+                                  <input type="text" id="txtresp4" onKeyUp="tabenter(event,getElementById('txtresp5'))" placeholder="Informe uma resposta" required>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="align-top">
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">Resposta 05</div>
+                              <div class="item-input">
+                                  <input type="text" id="txtresp5" onKeyUp="tabenter(event,getElementById('butinserirenquete'))" placeholder="Informe uma resposta" required>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <p class="buttons-row">
+                              <a href="#" id="butinserirenquetes" class="button button-big button-fill button-raised color-indigo button-full-margin">ENVIAR</a>
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </form>            
+                </div>                
+              </div>
+            </div>
+          </div>
 
 
           <!-- servicos terceirizados -->
@@ -1705,6 +2024,54 @@
           </div>
 
 
+          <!-- interfone -->
+          <div data-page="interfone" class="page cached">
+
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                  <div class="center">INTERFONE</div>
+                  <div class="right"><a href="#index" class="link icon-only"><i class="icon icon-back"></i></a></div>
+                  <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
+              </div>
+            </div>
+
+            <form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init toolbar tabbar submenuinterfone">
+              <div class="searchbar-input">
+                <input type="search" class="inputsearchinterfone" placeholder="Nome ou apto">
+                <a href="#" class="searchbar-clear"></a>
+              </div>
+            </form>
+        
+            <div class="page-content interfone infinite-scroll-content" style="padding-top: 112px;">
+              <div class="list-block searchbar-not-found">
+                <ul>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">Nenhum resultado</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+                <div class="list-block media-list tablet list-block-search-interfone searchbar-found">
+                  <ul id="interfone-cont"></ul>
+                </div>
+            </div>
+          </div>
+
+
+          <!-- interfone conteudo -->
+          <div data-page="interfonecont" class="page cached interfonecont">
+
+            <div class="page-content">
+              <div class="list-block media-list tablet">
+                <div id="interfonecont-cont"></div>
+              </div>
+              <div id="interfonecontvideo"></div>
+            </div>
+            <div class="interfonecontbg"></div>
+          </div>
+
         <!-- comunicado -->
           <div data-page="comuncondominio" id="comuncondominio" class="page cached with-subnavbar">
 
@@ -1719,9 +2086,9 @@
 
             <div class="toolbar tabbar">
               <div class="toolbar-inner">
-                <a href="#" onclick="comuncondominio();" class="tab-link tab-1">Condomínio</a>
-                <a href="#" onclick="comunportaria();" class="tab-link tab-2">Portaria</a>
-                <a href="#" onclick="comunmorador();" class="tab-link tab-3">Morador</a>
+                <a href="#" onclick="comuncondominio();" class="tab-link tab-1"><i class="icon fa badgecomuncondominio"></i>Condomínio</a>
+                <a href="#" onclick="comunportaria();" class="tab-link tab-2"><i class="icon fa badgecomunportaria"></i>Portaria</a>
+                <a href="#" onclick="comunmorador();" class="tab-link tab-3 labelmoradortab"><i class="icon fa badgecomunmorador"></i>Morador</a>
               </div>
             </div>
 
@@ -1729,7 +2096,7 @@
               <a href="#inserircomuncondominio" id="inserircomuncondominio" class="inserircomuncondominio floating-button bg-green">
                 <i class="icon icon-plus"></i>
               </a>
-              <div class="page-content comuncondominio pull-to-refresh-content">
+              <div class="page-content comuncondominio">
                 <div class="pull-to-refresh-layer">
                   <div class="preloader"></div>
                   <div class="pull-to-refresh-arrow"></div>
@@ -1737,13 +2104,18 @@
                   <div class="list-block media-list tablet">
                     <ul id="comuncondominio-cont"></ul>
                   </div>
+                  <!-- Preloader -->
+                  <div class="infinite-scroll-preloader">
+                    <div class="preloader"></div>
+                  </div>
               </div>
 
               <!-- Floatin Action Button -->
               <a href="#inserircomunportaria" id="inserircomunportaria" class="inserircomunportaria floating-button bg-green">
                 <i class="icon icon-plus"></i>
               </a>
-              <div class="page-content comunportaria pull-to-refresh-content">
+              <!-- pull-to-refresh-content -->
+              <div class="page-content comunportaria">
                 <div class="pull-to-refresh-layer">
                   <div class="preloader"></div>
                   <div class="pull-to-refresh-arrow"></div>
@@ -1751,19 +2123,27 @@
                   <div class="list-block media-list tablet">
                     <ul id="comunportaria-cont"></ul>
                   </div>
+                  <!-- Preloader -->
+                  <div class="infinite-scroll-preloader">
+                    <div class="preloader"></div>
+                  </div>
               </div>
 
               <!-- Floatin Action Button -->
               <a href="#inserircomunmorador" id="inserircomunmorador" class="inserircomunmorador floating-button bg-green">
                 <i class="icon icon-plus"></i>
               </a>
-              <div class="page-content comunmorador pull-to-refresh-content">
+              <div class="page-content comunmorador">
                 <div class="pull-to-refresh-layer">
                   <div class="preloader"></div>
                   <div class="pull-to-refresh-arrow"></div>
                 </div>
                   <div class="list-block media-list tablet">
                     <ul id="comunmorador-cont"></ul>
+                  </div>
+                  <!-- Preloader -->
+                  <div class="infinite-scroll-preloader">
+                    <div class="preloader"></div>
                   </div>
               </div>
 
@@ -1815,7 +2195,7 @@
                       <li class="blocolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Bloco</div>
+                          <div class="item-title label labelbloco">Bloco</div>
                             <div class="item-input">
                               <select id="blocolist" onchange="listDomicilio(null,'condominio');" class="blocolistcomunicado" required>
                               </select>
@@ -1827,7 +2207,7 @@
                       <li class="domiciliolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Apto</div>
+                          <div class="item-title label labelapto">Apto</div>
                             <div class="item-input">
                               <select id="domiciliolist" onChange="listMoradores(null,'condominio');" class="domiciliolistcomunicado">
                               </select>
@@ -1839,7 +2219,7 @@
                       <li class="moradorlistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                            <div class="item-title label">Morador</div>
+                            <div class="item-title label labelmorador">Morador</div>
                               <div class="item-input">
                                 <select id="moradorlist" class="moradorlistcomunicado">
                                 </select>
@@ -1932,18 +2312,19 @@
                       <li class="blocolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Bloco</div>
+                          <div class="item-title label labelbloco">Bloco</div>
                             <div class="item-input">
                               <select id="blocolistportaria" onchange="listDomicilio(null,'portaria');" class="blocolistcomunicado" required></select>
                             </div>
                           </div>
                         </div>
                       </li>
+                      <input type="hidden" id="blocolistportaria" class="sembloco invisivel">
 
                       <li class="domiciliolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Apto</div>
+                          <div class="item-title label labelapto">Apto</div>
                             <div class="item-input">
                               <select id="domiciliolistportaria" onChange="listMoradores(null,'portaria');" class="domiciliolistcomunicado"></select>
                             </div>
@@ -1954,7 +2335,7 @@
                       <li class="moradorlistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                            <div class="item-title label">Morador</div>
+                            <div class="item-title label labelmorador">Morador</div>
                               <div class="item-input">
                                 <select id="moradorlistportaria" class="moradorlistcomunicado"></select>
                               </div>
@@ -2058,7 +2439,7 @@
                       <li class="blocolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Bloco</div>
+                          <div class="item-title label labelbloco">Bloco</div>
                             <div class="item-input">
                               <select id="blocolistmorador" onchange="listDomicilio(null,'morador');" class="blocolistcomunicado" required>
                               </select>
@@ -2070,7 +2451,7 @@
                       <li class="domiciliolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Apto</div>
+                          <div class="item-title label labelapto">Apto</div>
                             <div class="item-input">
                               <select id="domiciliolistmorador" onChange="listMoradores(null,'morador');" class="domiciliolistcomunicado">
                               </select>
@@ -2082,7 +2463,7 @@
                       <li class="moradorlistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                            <div class="item-title label">Morador</div>
+                            <div class="item-title label labelmorador">Morador</div>
                               <div class="item-input">
                                 <select id="moradorlistmorador" class="moradorlistcomunicado">
                                 </select>
@@ -2164,7 +2545,7 @@
             <div class="navbar">
               <div class="navbar-inner">
                 <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-                  <div class="center">MORADORES</div>
+                  <div class="center labelmoradorupper">MORADORES</div>
                   <div class="right"><a href="#cadastros" class="link icon-only"><i class="icon icon-back"></i></a></div>
                   <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
               </div>
@@ -2191,7 +2572,7 @@
             <div class="navbar">
               <div class="navbar-inner">
                 <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-                  <div class="center">MORADOR</div>
+                  <div class="center labelmoradorupper">MORADOR</div>
                   <div class="right"><a href="#" class="back icon-only"><i class="icon icon-back"></i></a></div>
                   <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
               </div>
@@ -2211,7 +2592,7 @@
             <div class="navbar">
               <div class="navbar-inner">
                 <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-                  <div class="center">INSERIR MORADORES</div>
+                  <div class="center labelmoradorinserirupper">INSERIR MORADORES</div>
                   <div class="right"><a href="#" class="back link icon-only"><i class="icon icon-back"></i></a></div>
                   <div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>
               </div>
@@ -2358,7 +2739,7 @@
                       <li class="blocolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Bloco</div>
+                          <div class="item-title label labelbloco">Bloco</div>
                             <div class="item-input">
                               <select id="blocolistportariavisitantes" onchange="listDomicilio(null,'visitantes');" class="blocolistcomunicado" required></select>
                             </div>
@@ -2369,7 +2750,7 @@
                       <li class="domiciliolistcomunicadoli">
                         <div class="item-content">
                           <div class="item-inner">
-                          <div class="item-title label">Apto</div>
+                          <div class="item-title label labelapto">Apto</div>
                             <div class="item-input">
                               <select id="domiciliolistportariavisitantes" class="domiciliolistcomunicado"></select>
                             </div>
@@ -2382,12 +2763,23 @@
                           <div class="item-inner">
                             <div class="item-title label">Nome</div>
                             <div class="item-input">
-                            <input type="text" id="txtnomevisitante" onKeyUp="tabenter(event,getElementById('txtcpfvisitante'))" placeholder="Informe um nome" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                            <input type="text" id="txtnomevisitante" onKeyUp="tabenter(event,getElementById('txtrgvisitante'))" placeholder="Informe um nome" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                             <input type="hidden" id="txtguidvisitante" value="">
                             </div>
                           </div>
                         </div>
                       </li>                 
+
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title label">RG</div>
+                            <div class="item-input">
+                            <input type="text" class="" id="txtrgvisitante" onKeyUp="tabenter(event,getElementById('txtcpfvisitante'))" placeholder="Informe um RG">
+                            </div>
+                          </div>
+                        </div>
+                      </li> 
 
                       <li>
                         <div class="item-content">
@@ -2451,7 +2843,7 @@
                           <div class="item-inner">
                           <div class="item-title label">Início</div>
                             <div class="item-input">
-                              <input type="datetime-local"  placeholder="dd/mm/aaaa 00:00" id="txthorainiciotempvisitante">
+                              <input type="datetime-local" placeholder="dd/mm/aaaa 00:00" id="txthorainiciotempvisitante" onchange="this.className=(this.value!=''?'has-value':'')">
                               <!--onfocus="(this.type='datetime-local')" onblur="(this.type='datetime-local')"-->
                             </div>
                           </div>
@@ -2462,7 +2854,7 @@
                           <div class="item-inner">
                           <div class="item-title label">Término</div>
                             <div class="item-input">
-                              <input type="datetime-local" placeholder="dd/mm/aaaa 00:00" id="txthoraterminotempvisitante">
+                              <input type="datetime-local" placeholder="dd/mm/aaaa 00:00" id="txthoraterminotempvisitante" onchange="this.className=(this.value!=''?'has-value':'')">
                             </div>
                           </div>
                         </div>
@@ -2894,9 +3286,17 @@
                 <ul>
                 <li>
                   <div class="content text-cadastro">
-                    <p>Preencha seus dados e clique em cadastrar. Você receberá um email de confirmação para criar sua senha.</p>
+                    <p>Solicite ao síndico o código do seu condomínio (Deixe esse campo em branco para se cadastrar no condomínio MODELO). Após o cadastro, você receberá um email de confirmação para criar sua senha.</p>
                   </div>
                 </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">Código do condomínio</div>
+                      <div class="item-input">
+                        <input type="text" name="txtcodcondominio" id="txtcodcondominio" autocomplete="on" autocorrect="on" autocapitalize="off" spellcheck="true" onKeyUp="tabenter(event,getElementById('txtnomeaddmoradorteste'))" placeholder="Digite o código do seu condomínio">
+                      </div>
+                    </div>
+                  </li>
                   <li class="item-content">
                     <div class="item-inner">
                       <div class="item-title label">Nome</div>
@@ -2952,7 +3352,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="list-block"><a href="#" id="esqueceu" class="button button-big button-fill button-raised color-green">RECUPERAR SENHA</a></div>
+              <div class="list-block"><a href="#" id="esqueceu" class="button button-big button-fill button-raised color-orange">RECUPERAR SENHA</a></div>
               <div class="list-block no-margin-auto">
                 <div class="list-block-label no-margin-auto"><a href="#" class="white close-popup">Fechar</a></div>
               </div>
@@ -2961,10 +3361,12 @@
         </div>
       </div>
     </div>
-
+    <!--<script src="https://rawgit.com/muaz-khan/RTCMultiConnection/master/dist/RTCMultiConnection.min.js"></script>
+    <script src="https://www.webrtc-experiment.com/getMediaElement-v1.2.js"> </script>
+    <script src="js/SSEConnection.js"></script>-->
     <script type="text/javascript" src="js/my-app.js"></script>
     <!-- API JS Pagseguro - In production remove sandbox -->
-    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <!--<script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuyZZJSUxIPv3lVWWQhcl8drGzxFUunCk"></script>
   </body>
 
