@@ -2332,9 +2332,10 @@ function searchhomeportaria(){
                                     cor="#4caf50";
                                     exibecont = cpf;
                                 }
-
+                                //console.log("num_bloco = "+num_bloco);
                                 // Verifica se o condomínio é sem bloco
                                 if(arrayVisitantedentro[i].num_bloco.toUpperCase()!="SEM BLOCO"){
+                                    //console.log("num_bloco = "+num_bloco);
                                     num_bloco = "/" + arrayVisitantedentro[i].num_bloco;
                                 }
                                 // Verifica se é visitante para o condomínio
@@ -2348,7 +2349,7 @@ function searchhomeportaria(){
                                 }else{
                                     textbloco = "Condomínio";
                                 }
-
+                                console.log("num_bloco = "+num_bloco);
                                 urlVisitante = arrayVisitantedentro[i].urlVisitante.replace("http://","https://");
                                 datasearch += '<li class="swipeout item-content">'+
                                                           '<a href="#visitantecont" onclick="visitantecont('+arrayVisitantedentro[i].idvisitante+')" class="swipeout-content item-link item-content">'+
@@ -2368,6 +2369,7 @@ function searchhomeportaria(){
                                                             '<a href="#inserirvisitante" onclick = "editarvisitante('+arrayVisitantedentro[i].idvisitante+')"" class="action2 bg-orange">Editar</a>'+
                                                           '</div>'+
                                                         '</li>';
+                                num_bloco = "";                                                        
                             }
                         }
 
@@ -2413,13 +2415,15 @@ function searchhomeportaria(){
 
                                 // Verifica se o condomínio é sem bloco
                                 if(arrayVisitantefora[i].num_bloco.toUpperCase()!="SEM BLOCO"){
-                                    num_bloco = " "+localStorage.getItem("labelbloco")+": " + arrayVisitantefora[i].num_bloco;
+                                    //console.log("num_bloco = "+num_bloco);
+                                    num_bloco = "/" + arrayVisitantefora[i].num_bloco;
                                 }
                                 // Verifica se é visitante para o condomínio
                                 if (arrayVisitantefora[i].num_domicilio!="") {
-                                    textnomebloco = name;
+                                    textnomebloco = name+' ('+arrayVisitantefora[i].num_domicilio+num_bloco+')';
+                                }else{
+                                    textnomebloco = name+' (Condomínio)';
                                 }
-
                                 if (arrayVisitantefora[i].num_domicilio) {
                                     textbloco = localStorage.getItem("labelapto")+': '+arrayVisitantefora[i].num_domicilio+num_bloco;
                                 }else{
@@ -2445,6 +2449,7 @@ function searchhomeportaria(){
                                                             '<a href="#inserirvisitante" onclick = "editarvisitante('+arrayVisitantefora[i].idvisitante+')"" class="action2 bg-orange">Editar</a>'+
                                                           '</div>'+
                                                         '</li>';
+                                num_bloco = "";                                                        
                             }
                         }
                     }
@@ -2488,6 +2493,7 @@ function searchhomeportaria(){
                                                         '</div>'+
                                                       '</a>'+
                                                     '</li>';
+                            num_bloco = "";
                         }
                     }
 
@@ -2522,6 +2528,7 @@ function searchhomeportaria(){
                                                         '</div>'+
                                                       '</a>'+
                                                     '</li>';
+                            num_bloco = "";
                         }
                     }
                     //atualizar listagem só qando houver diferença
@@ -7453,8 +7460,12 @@ function veiculocont(id){
                         });
                         imgZoom = "onclick=myPhotoBrowserVeiculo.open();";
 
-                num_bloco = data.veiculo[i].num_bloco ? "/"+data.veiculo[i].num_bloco : "";
-
+                //num_bloco = data.veiculo[i].num_bloco ? "/"+data.veiculo[i].num_bloco : "";
+                if(data.veiculo[i].num_bloco.toUpperCase()!="SEM BLOCO" && data.veiculo[i].num_bloco!=""){
+                    num_bloco = "/" + data.veiculo[i].num_bloco;
+                }else{
+                    num_bloco = "";
+                }
                 if (data.veiculo[i].tipo=="1") {
                     tipo = "Carro";
                 } else {
