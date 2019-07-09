@@ -26,7 +26,7 @@
 
 <!-- iOS 1.8.4 e Android 1.6.4 | alterar notificationTemplate framework7.js -->
 <plugin name="phonegap-plugin-push" spec="1.11.1">
-    <variable name="SENDER_ID" value="214666097431"/>
+    <variable name="SENDER_ID" value="10572585588"/>
 </plugin>
 
 <plugin name="cordova-plugin-app-version" spec="0.1.9"/>
