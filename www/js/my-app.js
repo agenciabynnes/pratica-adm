@@ -1983,7 +1983,7 @@ function profile(){
 
     setTimeout(function () {    
         if(localStorage.getItem("blocoNum") && localStorage.getItem("blocoNum").toUpperCase()!="SEM BLOCO"){
-            var bloco_num = labelbloco+": " + localStorage.getItem("blocoNum") + " | ";
+            bloco_num = labelbloco+": " + localStorage.getItem("blocoNum") + " | ";
         }
         var profile_detalhes = "Condomínio: " + localStorage.getItem("condominioNome") + " <br>"+ bloco_num + labelapto+": " + localStorage.getItem("domicilioNum");
 
@@ -2017,9 +2017,6 @@ function profileSindico(){
     $('.profile_foto').html(profile_image);
     $('.profile_nome').html(localStorage.getItem("sindicoNome"));
 
-    if(localStorage.getItem("blocoNum")){
-        var bloco_num = localStorage.getItem("blocoNum");
-    }
     var profile_detalhes = "Condomínio: " + localStorage.getItem("sindicoCondominioNome");
 
     $('.nameHome').html("Cond. " +localStorage.getItem("sindicoCondominioNome"));
@@ -2128,9 +2125,6 @@ function profileAdministradora(){
     $('.profile_foto').html(profile_image);
     $('.profile_nome').html(localStorage.getItem("administradoraNome"));
 
-    if(localStorage.getItem("blocoNum")){
-        var bloco_num = localStorage.getItem("blocoNum");
-    }
     var profile_detalhes = "Condomínio: " + localStorage.getItem("administradoraCondominioNome");
 
     $('.nameHome').html("Cond. " +localStorage.getItem("administradoraCondominioNome"));
@@ -2212,9 +2206,6 @@ function profilePortaria(){
     $('.profile_foto').html(profile_image);
     $('.profile_nome').html(localStorage.getItem("portariaNome"));
 
-    if(localStorage.getItem("blocoNum")){
-        var bloco_num = localStorage.getItem("blocoNum");
-    }
     var profile_detalhes = "Condomínio: " + localStorage.getItem("condominioNome");
     $('.nameHome').html("Cond. " +localStorage.getItem("condominioNome"));
     $('.profile_detalhes').html(profile_detalhes);
