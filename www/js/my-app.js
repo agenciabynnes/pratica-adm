@@ -1576,7 +1576,7 @@ var blocklogado=0;
 
 
         $.ajax({
-            url: $server+"functionAppSindico.php?guid="+localStorage.getItem("guid")+"&action=list",
+            url: $server+"functionAppSindico.php?guid="+localStorage.getItem("sindicoGuid")+"&idcondominio="+localStorage.getItem("condominioId")+"&action=list",
             dataType : "json",
             success: function(data) {
                 if (data.sindico[0].condominioactive==1) {
