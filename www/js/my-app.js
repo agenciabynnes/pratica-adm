@@ -59,7 +59,7 @@ function mplaca(v){
 
 ///////////////////////// iniciar dom /////////////////////////
 var $$ = Dom7;
-
+var $nameapp = 'Prática';
 var $server = 'https://aptohome.com.br/admin/';
 var $apiKey = 'AIzaSyC55_b17t0ZaziJLHdk1oyIFHY5pSvcIcA';
 var imagemPerf;
@@ -406,9 +406,9 @@ function badge(){
                                         }
 
                                         var totalviews = 0;
-                                        var comuncomunicadonotviews = localStorage.getItem("viewscondominio");
-                                        var comuncomunportarianotviews = localStorage.getItem("viewsportaria");
-                                        var comuncomunmoradornotviews = localStorage.getItem("viewsmorador");
+                                        var comuncomunicadonotviews = localStorage.getItem("viewscondominio") ? localStorage.getItem("viewscondominio") : 0;
+                                        var comuncomunportarianotviews = localStorage.getItem("viewsportaria") ? localStorage.getItem("viewsportaria") : 0;
+                                        var comuncomunmoradornotviews = localStorage.getItem("viewsmorador") ? localStorage.getItem("viewsmorador") : 0;
                                         totalviews = parseInt(comuncomunicadonotviews) + parseInt(comuncomunportarianotviews) + parseInt(comuncomunmoradornotviews);
                                         console.log("comuncomunicadonotviews "+comuncomunicadonotviews);
                                         console.log("comuncomunportarianotviews "+comuncomunportarianotviews);
@@ -419,17 +419,49 @@ function badge(){
                                             $('.badgecomunicado').html('<span class="badge bg-red">'+totalviews+'</span>');
                                         }else{
                                             $('.badgecomunicado span').hide();
-                                        }                                    
+                                        }
                                         
                                     },error: function(data) {
 
                                     }
                                 });
+
+                                var totalviews = 0;
+                                var comuncomunicadonotviews = localStorage.getItem("viewscondominio") ? localStorage.getItem("viewscondominio") : 0;
+                                var comuncomunportarianotviews = localStorage.getItem("viewsportaria") ? localStorage.getItem("viewsportaria") : 0;
+                                var comuncomunmoradornotviews = localStorage.getItem("viewsmorador") ? localStorage.getItem("viewsmorador") : 0;
+                                totalviews = parseInt(comuncomunicadonotviews) + parseInt(comuncomunportarianotviews) + parseInt(comuncomunmoradornotviews);
+                                console.log("comuncomunicadonotviews "+comuncomunicadonotviews);
+                                console.log("comuncomunportarianotviews "+comuncomunportarianotviews);
+                                console.log("comuncomunmoradornotviews "+comuncomunmoradornotviews);
+                                
+                                if (totalviews>0) {
+                                    //coloca numero de nao visualizados
+                                    $('.badgecomunicado').html('<span class="badge bg-red">'+totalviews+'</span>');
+                                }else{
+                                    $('.badgecomunicado span').hide();
+                                } 
                                 
                             },error: function(data) {
 
                             }
                         });
+
+                        var totalviews = 0;
+                        var comuncomunicadonotviews = localStorage.getItem("viewscondominio") ? localStorage.getItem("viewscondominio") : 0;
+                        var comuncomunportarianotviews = localStorage.getItem("viewsportaria") ? localStorage.getItem("viewsportaria") : 0;
+                        var comuncomunmoradornotviews = localStorage.getItem("viewsmorador") ? localStorage.getItem("viewsmorador") : 0;
+                        totalviews = parseInt(comuncomunicadonotviews) + parseInt(comuncomunportarianotviews) + parseInt(comuncomunmoradornotviews);
+                        console.log("comuncomunicadonotviews "+comuncomunicadonotviews);
+                        console.log("comuncomunportarianotviews "+comuncomunportarianotviews);
+                        console.log("comuncomunmoradornotviews "+comuncomunmoradornotviews);
+                        
+                        if (totalviews>0) {
+                            //coloca numero de nao visualizados
+                            $('.badgecomunicado').html('<span class="badge bg-red">'+totalviews+'</span>');
+                        }else{
+                            $('.badgecomunicado span').hide();
+                        } 
                     }else{
                         var totalviews = 0;
                         var comuncomunicadonotviews = localStorage.getItem("viewscondominio");
@@ -869,7 +901,7 @@ function videos(){
                                     '</a>'+
                                     '<div class="card-header">'+
                                         '<div class="ks-facebook-avatar"><img src="https://yt3.ggpht.com/-jxyjMXngpPE/AAAAAAAAAAI/AAAAAAAAAAA/9BdjsAA14uw/s50-c-k-no-mo-rj-c0xffffff/photo.jpg" width="34"></div>'+
-                                            '<div class="ks-facebook-name">Aptohome</div>'+
+                                            '<div class="ks-facebook-name">'+$nameapp+'</div>'+
                                             '<div class="ks-facebook-date">'+item.snippet.title+'</div>'+
                                             //'<div class="ks-facebook-date">'+moment(item.snippet.publishedAt).locale('pt-br').format('llll')+'</div>'+
                                             //'<div class="color-indigo" onClick="shareVideoCont(\''+datayoutube+'\');"><i class="icon shareVideoCont fa fa-share-alt fa-lg"></i></div>'+
@@ -1334,7 +1366,7 @@ function atualizartoken(data){
     setTimeout(function () {
         $.ajax($server+'functionAppMorador.php?', {
             type: "post",
-            data: "action=token&token="+localStorage.getItem("token")+"&plataform="+device.platform+"&guid="+localStorage.getItem("guid"),
+            data: "action=token&token="+localStorage.getItem("token")+"&version="+localStorage.getItem("version")+"&plataform="+device.platform+"&guid="+localStorage.getItem("guid"),
         })
         .fail(function() {
         //myApp.alert('Erro! Tente novamente.');
@@ -1352,7 +1384,7 @@ function atualizartokenSindico(data){
     setTimeout(function () {
         $.ajax($server+'functionAppSindico.php?', {
             type: "post",
-            data: "action=token&token="+localStorage.getItem("token")+"&plataform="+device.platform+"&guid="+localStorage.getItem("sindicoGuid"),
+            data: "action=token&token="+localStorage.getItem("token")+"&version="+localStorage.getItem("version")+"&plataform="+device.platform+"&guid="+localStorage.getItem("sindicoGuid"),
         })
         .fail(function() {
         //myApp.alert('Erro! Tente novamente.');
@@ -1370,7 +1402,7 @@ function atualizartokenAdministradora(data){
     setTimeout(function () {
         $.ajax($server+'functionAppAdministradora.php?', {
             type: "post",
-            data: "action=token&token="+localStorage.getItem("token")+"&plataform="+device.platform+"&guid="+localStorage.getItem("administradoraGuid"),
+            data: "action=token&token="+localStorage.getItem("token")+"&version="+localStorage.getItem("version")+"&plataform="+device.platform+"&guid="+localStorage.getItem("administradoraGuid"),
         })
         .fail(function() {
         //myApp.alert('Erro! Tente novamente.');
@@ -1388,7 +1420,7 @@ function atualizartokenPortaria(data){
     setTimeout(function () {
         $.ajax($server+'functionAppPortaria.php?', {
             type: "post",
-            data: "action=token&token="+localStorage.getItem("token")+"&plataform="+device.platform+"&guid="+localStorage.getItem("guid"),
+            data: "action=token&token="+localStorage.getItem("token")+"&version="+localStorage.getItem("version")+"&plataform="+device.platform+"&guid="+localStorage.getItem("guid"),
         })
         .fail(function() {
         //myApp.alert('Erro! Tente novamente.');
@@ -1850,6 +1882,7 @@ function modulos(){
                     }
 
                     var qtd = data.moduloapp.length;
+                    //console.log(qtd);
                     var auxalerta = 0;
                     for (var i = 0; i < qtd; i++) {
 
@@ -1969,19 +2002,19 @@ function profile(){
     var labelbloco = "";
     var labelapto = "";
     
-    //verifica se labels tem valor
-    if (localStorage.getItem("labelbloco")) {
-        labelbloco = localStorage.getItem("labelbloco");
-    }else{
-        labelbloco = "Bloco";
-    }
-    if (localStorage.getItem("labelapto")) {
-        labelapto = localStorage.getItem("labelapto");
-    }else{
-        labelapto = "Apto";
-    }
-
-    setTimeout(function () {    
+    setTimeout(function () {  
+        //verifica se labels tem valor
+        if (localStorage.getItem("labelbloco")) {
+            labelbloco = localStorage.getItem("labelbloco");
+        }else{
+            labelbloco = "Bloco";
+        }
+        if (localStorage.getItem("labelapto")) {
+            labelapto = localStorage.getItem("labelapto");
+        }else{
+            labelapto = "Apto";
+        }
+      
         if(localStorage.getItem("blocoNum") && localStorage.getItem("blocoNum").toUpperCase()!="SEM BLOCO"){
             bloco_num = labelbloco+": " + localStorage.getItem("blocoNum") + " | ";
         }
@@ -2896,7 +2929,7 @@ function enviarprofile()
         });
         $("#preview-profile").attr('src',"");
  
-        indexofImage = imagemPerf.indexOf("aptohome");
+        indexofImage = imagemPerf.indexOf("apptohome");
 
 if (indexofImage!="-1") {
 }
@@ -3043,6 +3076,10 @@ function boleto(){
                     var qtd = data.boleto.length;
 
                     for (var i = 0; i < qtd; i++) {
+
+                        if (data.boleto[i].notresponsive==1) {
+                            $(".boletos-100").attr("style","width:1000px")
+                        }
 
                         $(".iframe-boleto").attr("src",data.boleto[i].url);
                         //$(".iframe-boleto").attr("src","https://actaapp.com21.com.br");
@@ -3403,7 +3440,65 @@ ptrContent.on('refresh', function (e) {
 });
 
 /////////////////////////////////////  mural de anuncios ///////////////////////
-function muraldeanuncios(){
+function muraldeanuncios(idCatAnuncio){
+if (!idCatAnuncio) {
+    idCatAnuncio = "";
+}
+// filtro listar categorias anuncio //
+
+    $.ajax({
+        url: $server+"functionAppAnuncios.php?action=listCat",
+        dataType : "json",
+        success: function(data) {
+            //console.log("entrei-success");
+            $('#txtlistcatanuncio').html("");
+            if (data!=null) {
+                myApp.hideIndicator();
+                var qtd = data.catanuncio.length;
+                var catlist = "";
+
+                    var catlist = '<div class="page" data-page="listcatanuncio">'+
+                                    '<div class="navbar">'+
+                                        '<div class="navbar-inner">'+
+                                            '<div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>'+
+                                            '<div class="center">SELECIONE UMA CATEGORIA</div>'+
+                                            '<div class="right"><a href="#" class="back link icon-only"><i class="icon icon-back"></i></a></div>'+
+                                            '<div class="right no-margin"><a href="#index" class="link icon-only"><i class="icon fa fa-home"></i></a></div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                      '<div class="page-content">'+
+                                        '<div class="list-block">'+
+                                          '<ul>';
+                        catlist += '<li><a href="#" onClick="muraldeanuncios(), $(\'.selecionarcatanuncio\').html(\'Todas\'),mainView.router.back();" class="item-link list-button"><div class="item-inner">Todas</div></li>';
+                    for (var i = 0; i < qtd; i++) {
+
+                        catlist += '<li><a href="#" onClick="muraldeanuncios(\''+data.catanuncio[i].idCatAnuncio+'\'), $(\'.selecionarcatanuncio\').html(\''+data.catanuncio[i].nomeCatAnuncio+'\'),mainView.router.back();" class="item-link list-button"><div class="item-inner">'+data.catanuncio[i].nomeCatAnuncio+'</div></li>';
+
+                    }
+                        catlist +='</ul>'+
+                                    '</div>'+
+                                  '</div>'+
+                                '</div>';
+
+                    localStorage.setItem("arrCatAnuncio", catlist);
+                    // verifica se tem categroia selecionada, senão coloca todas
+                    if ($('.selecionarcatanuncio').html()=="") {
+                        $('.selecionarcatanuncio').html("Todas");
+                    }
+            }
+
+        },error: function(data) {
+            myApp.hideIndicator();
+            myApp.alert('Erro ao carregar dados, tente novamente!');
+            $('#txtlistcatanuncio').html("");
+
+        }
+    });
+
+    // acao click para listar categorias
+    $$('.actionOptionCatAnun').on('click', function (e) {
+        mainView.router.loadContent(localStorage.getItem("arrCatAnuncio"));
+    });    
 
     myApp.showIndicator();
     //$('#muraldeanuncios-cont').html("");
@@ -3427,7 +3522,7 @@ function muraldeanuncios(){
         }
 
         $.ajax({
-            url: $server+"functionAppAnuncios.php?idcondominio="+localStorage.getItem("condominioId")+"&action=list",
+            url: $server+"functionAppAnuncios.php?idcondominio="+localStorage.getItem("condominioId")+"&idcatanuncio="+idCatAnuncio+"&action=listAnuncioCat",
             dataType : "json",
             success: function(data) {
                 //console.log(data);
@@ -3676,7 +3771,7 @@ myApp.onPageInit('inserirmuraldeanuncios', function (page) {
     });
     
 });
-///////////////////////////// listar categorias anuncio //////////////////////////////////
+///////////////////////////// listar categorias inserir anuncio //////////////////////////////////
 function listCatAnuncio(){
     myApp.showIndicator();
 
@@ -3712,7 +3807,7 @@ function listCatAnuncio(){
 
 $('#butinseriranuncios').on('click', function(){
     //alert($$('#txttitanuncio').val()+" - "+$$('#txtanuncio').val()+" - "+$$('#txtvaloranuncio').val());
-    if (($$('#txttitanuncio').val()!="") && ($$('#txtanuncio').val()!="") && ($$('#txtphonenumber').val()!="") && ($$('#txtvaloranuncio').val()!="")) {
+    if (($$('#txtcatanuncio').val()!="") && ($$('#txttitanuncio').val()!="") && ($$('#txtanuncio').val()!="") && ($$('#txtphonenumber').val()!="") && ($$('#txtvaloranuncio').val()!="")) {
 
             enviaranuncios();
 
@@ -4109,6 +4204,18 @@ function livroocorrenciascont(id,push,eq){
                                         '</li>';
                         imgTransparencia = "";
                     $('#ocorrenciascont-cont').html(dataocorrencia);
+
+                    //marcar comunicado como lido
+                    $('#ocorrencias-cont li[data-index='+eq+'] a .item-inner').removeClass("textbold");
+                        
+                    if (data.ocorrencia[i].moradorview==true || data.ocorrencia[i].portariaview==true || data.ocorrencia[i].sindicoview==true || data.ocorrencia[i].adminview==true) {
+                        console.log("subtratir badges ocorrencias condominio");
+                        //subtrair badges
+                        if ($(".badgeocorrencia span").html()!="") {
+                            //subtrair badge icon
+                            $(".badgeocorrencia span").html(parseInt($(".badgeocorrencia span").text())-1);
+                        }
+                    } 
                     
                     /*if (data.ocorrencia[i].urlOcorrencia!="images/sem_foto_icone.jpg") {
                         var imgOcorrencia = '<div class="card-content-cont"><i '+imgZoom+' class="fa fa-search-plus fa-3x"></i><img src="'+data.ocorrencia[i].urlOcorrencia+'" '+imgZoom+' width="100%"></div>';
@@ -4135,7 +4242,7 @@ function livroocorrenciascont(id,push,eq){
                 var qtd = data.resposta.length;
                 var imgResposta = "";
                 var imgZoom;
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var dataresp = "";
 
                 for (var i = 0; i < qtd; i++) {
@@ -4221,16 +4328,6 @@ function livroocorrenciascont(id,push,eq){
                     '<div class="content-block"><a href="#" id="butinserirresp" onclick="butinserirresp()" class="button button-big button-fill button-raised color-indigo button-full">ENVIAR</a></div>';
             
             $('.resp-ocorrencias-cont').html(dataresp);
-
-            //marcar comunicado como lido
-            $('#ocorrencias-cont li[data-index='+eq+'] a .item-inner').removeClass("textbold");
-            //subtrair badges
-            if ($(".badgecomunicado span").html()!="") {
-                //subtrair badge icon
-                $(".badgeocorrencia span").html(parseInt($(".badgeocorrencia span").text())-1);
-            }  
-
-
 }
 
 function inserirocorrencias(){
@@ -8204,7 +8301,7 @@ function comuncondominio(alvo){
 
                         delcomuncondominio = "onclick = delcomuncondominio('"+data.comunicado[i].guid+"',"+i+");"
                         datacomunicado += '<li date-date="'+data.comunicado[i].dataComunicado+'" class="'+swipeout+' swipeout-comuncondominio" data-index="'+i+'">'+
-                                                  '<a href="#comunicadocont" onclick="comuncomunicadocont('+data.comunicado[i].idComunicado+','+i+')" class="swipeout-content item-link item-content">'+
+                                                  '<a href="#comunicadocont" onclick="comuncomunicadocont('+data.comunicado[i].idComunicado+','+false+','+i+')" class="swipeout-content item-link item-content">'+
                                                     '<div class="item-media">'+
                                                       '<img src="'+data.comunicado[i].urlProfile+'" >'+
                                                     '</div>'+
@@ -8320,7 +8417,7 @@ function delcomuncondominio(guid,eq){
 }
 
 ///////////////////////////////////// comuncomunicado conteudo ///////////////////////////
-function comuncomunicadocont(id,eq){
+function comuncomunicadocont(id,push,eq){
 
     myApp.showIndicator();
     $('#comunicadocont-cont').html("");
@@ -8336,7 +8433,7 @@ function comuncomunicadocont(id,eq){
                 var imgComunicado = "";
                 var imgZoom;
                 var pdfView;
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var viewComun = "";
                 var listView = "";
 
@@ -8391,6 +8488,14 @@ function comuncomunicadocont(id,eq){
                         }
                     //}
 
+                    //atualizar condominio logado
+                    if (push==true && localStorage.getItem("sindicoIdsindico")) {
+                        updateCond(data.comunicado[i].idCondominio,true);
+                    }
+                    if (push==true && localStorage.getItem("administradoraIdadministradora")) {
+                        updateCondAdministradora(data.comunicado[i].idCondominio,true);
+                    }
+
                     if (data.comunicado[i].urlComunicado!="images/sem_foto_icone.jpg") {
 
                         myPhotoBrowserComunicadocont = myApp.photoBrowser({
@@ -8444,14 +8549,17 @@ function comuncomunicadocont(id,eq){
                     //marcar comunicado como lido
                     $('#comuncondominio-cont li[data-index='+eq+'] a .item-inner').removeClass("textbold");
                     
-                    //subtrair badges
-                    if ($(".badgecomuncondominio span").html()!="") {
-                        //subtrair badge tab
-                        $(".badgecomuncondominio span").html(parseInt($(".badgecomuncondominio span").text())-1);
-                    }
-                    if ($(".badgecomunicado span").html()!="") {
-                        //subtrair badge icon
-                        $(".badgecomunicado span").html(parseInt($(".badgecomunicado span").text())-1);
+                    if (data.comunicado[i].moradorview==true || data.comunicado[i].portariaview==true || data.comunicado[i].sindicoview==true || data.comunicado[i].adminview==true) {
+                        console.log("subtratir badges comunicado condominio");
+                        //subtrair badges
+                        if ($(".badgecomuncondominio span").html()!="") {
+                            //subtrair badge tab
+                            $(".badgecomuncondominio span").html(parseInt($(".badgecomuncondominio span").text())-1);
+                        }
+                        if ($(".badgecomunicado span").html()!="") {
+                            //subtrair badge icon
+                            $(".badgecomunicado span").html(parseInt($(".badgecomunicado span").text())-1);
+                        }
                     }
                 }
 
@@ -8472,7 +8580,7 @@ function comuncomunicadocont(id,eq){
                 var qtd = data.resposta.length;
                 var imgResposta = "";
                 var imgZoom;
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var dataresp;
 
                 for (var i = 0; i < qtd; i++) {
@@ -8972,7 +9080,7 @@ myApp.attachInfiniteScroll($$('.comunportariahome.infinite-scroll'));
 
                             urlComunPortaria = data.comunicado[i].urlProfile.replace("http://","https://");
                             datacomunicado += '<li date-date="'+data.comunicado[i].dataComunicado+'" data-index="'+i+'">'+
-                                                      '<a href="#comunicadocont" onclick="comunportariacont('+data.comunicado[i].idComunicado+','+i+')" class="item-link item-content">'+
+                                                      '<a href="#comunicadocont" onclick="comunportariacont('+data.comunicado[i].idComunicado+','+false+','+i+')" class="item-link item-content">'+
                                                         '<div class="item-media">'+
                                                           '<img src="'+urlComunPortaria+'" >'+
                                                         '</div>'+
@@ -9202,7 +9310,7 @@ function comunportaria(alvo){
 
                         delcomunportaria = "onclick = delcomunportaria('"+data.comunicado[i].guid+"',"+i+");"
                         datacomunicado += '<li date-date="'+data.comunicado[i].dataComunicado+'" class="'+swipeout+' swipeout-comunportaria" data-index="'+i+'">'+
-                                                  '<a href="#comunicadocont" onclick="comunportariacont('+data.comunicado[i].idComunicado+','+i+')" class="swipeout-content item-link item-content">'+
+                                                  '<a href="#comunicadocont" onclick="comunportariacont('+data.comunicado[i].idComunicado+','+false+','+i+')" class="swipeout-content item-link item-content">'+
                                                     '<div class="item-media">'+
                                                       '<img src="'+data.comunicado[i].urlProfile+'" >'+
                                                     '</div>'+
@@ -9325,7 +9433,7 @@ function delcomunportaria(guid,eq){
 }
 
 ///////////////////////////////////// comunportariacont conteudo ///////////////////////////
-function comunportariacont(id,eq){
+function comunportariacont(id,push,eq){
        
     myApp.showIndicator();
     //var datatransparencia;
@@ -9342,7 +9450,7 @@ function comunportariacont(id,eq){
                 var pdfView;
                 var imgComunicado = "";
                 var imgZoom;
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var viewComun = "";
                 var listView = "";
 
@@ -9396,6 +9504,14 @@ function comunportariacont(id,eq){
                     }
 
                     idpostdestino = data.comunicado[i].idComunicado;
+
+                    //atualizar condominio logado
+                    if (push==true && localStorage.getItem("sindicoIdsindico")) {
+                        updateCond(data.comunicado[i].idCondominio,true);
+                    }
+                    if (push==true && localStorage.getItem("administradoraIdadministradora")) {
+                        updateCondAdministradora(data.comunicado[i].idCondominio,true);
+                    }
 
                     if (data.comunicado[i].urlComunicado!="images/sem_foto_icone.jpg") {
 
@@ -9453,19 +9569,23 @@ function comunportariacont(id,eq){
                     //marcar comunicado portaria como lido
                     $('#comunportariahome-cont li[data-index='+eq+'] a .item-inner').removeClass("textbold");
                     
-                    //subtrair badges
-                    if ($(".badgecomunportaria span").html()!="") {
-                        //subtrair badge tab
-                        $(".badgecomunportaria span").html(parseInt($(".badgecomunportaria span").text())-1);
-                    }
-                    if ($(".badgecomunicado span").html()!="") {
-                        //subtrair badge icon
-                        $(".badgecomunicado span").html(parseInt($(".badgecomunicado span").text())-1);
-                    }
-                    //subtrair badges comunicado portaria home
-                    if ($(".badgecomunportariahome span").html()!="") {
-                        //subtrair badge tab
-                        $(".badgecomunportariahome span").html(parseInt($(".badgecomunportariahome span").text())-1);
+
+                    if (data.comunicado[i].moradorview==true || data.comunicado[i].portariaview==true || data.comunicado[i].sindicoview==true || data.comunicado[i].adminview==true) {
+                        console.log("subtratir badges comunicado condominio");
+                        //subtrair badges
+                        if ($(".badgecomunportaria span").html()!="") {
+                            //subtrair badge tab
+                            $(".badgecomunportaria span").html(parseInt($(".badgecomunportaria span").text())-1);
+                        }
+                        if ($(".badgecomunicado span").html()!="") {
+                            //subtrair badge icon
+                            $(".badgecomunicado span").html(parseInt($(".badgecomunicado span").text())-1);
+                        }
+                        //subtrair badges comunicado portaria home
+                        if ($(".badgecomunportariahome span").html()!="") {
+                            //subtrair badge tab
+                            $(".badgecomunportariahome span").html(parseInt($(".badgecomunportariahome span").text())-1);
+                        }
                     }
                 }
 
@@ -9485,7 +9605,7 @@ function comunportariacont(id,eq){
                 var qtd = data.resposta.length;
                 var imgResposta = "";
                 var imgZoom;
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var dataresp;
 
                 for (var i = 0; i < qtd; i++) {
@@ -10119,7 +10239,7 @@ function comunmorador(alvo){
 
                         delcomunmorador = "onclick = delcomunmorador('"+data.comunicado[i].guid+"',"+i+");"
                         datacomunicado += '<li date-date="'+data.comunicado[i].dataComunicado+'" class="'+swipeout+' swipeout-comunmorador" data-index="'+i+'">'+
-                                                  '<a href="#comunicadocont" onclick="comunmoradorcont('+data.comunicado[i].idComunicado+','+i+')" class="swipeout-content item-link item-content">'+
+                                                  '<a href="#comunicadocont" onclick="comunmoradorcont('+data.comunicado[i].idComunicado+','+false+','+i+')" class="swipeout-content item-link item-content">'+
                                                     '<div class="item-media">'+
                                                       '<img src="'+data.comunicado[i].urlProfile+'" >'+
                                                     '</div>'+
@@ -10200,7 +10320,7 @@ function delcomunmorador(guid,eq){
 }
 
 ///////////////////////////////////// comunmoradorcont conteudo ///////////////////////////
-function comunmoradorcont(id,eq){
+function comunmoradorcont(id,push,eq){
 
     myApp.showIndicator();
 
@@ -10216,7 +10336,7 @@ function comunmoradorcont(id,eq){
                 var qtd = data.comunicado.length;
                 var imgZoom;
                 var imgComunicado = "";
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var viewComun = "";
                 var listView = "";
 
@@ -10270,6 +10390,14 @@ function comunmoradorcont(id,eq){
                         viewComun = '<div class="ks-facebook-view"><a href="#" onClick="listView()");">'+qtdview+' <i class="fa fa-lg fa-eye color-blue"></i></a></div>';
                     }
 
+                    //atualizar condominio logado
+                    if (push==true && localStorage.getItem("sindicoIdsindico")) {
+                        updateCond(data.comunicado[i].idCondominio,true);
+                    }
+                    if (push==true && localStorage.getItem("administradoraIdadministradora")) {
+                        updateCondAdministradora(data.comunicado[i].idCondominio,true);
+                    }
+
                     if (data.comunicado[i].urlComunicado!="images/sem_foto_icone.jpg") {
 
                         myPhotoBrowserComunicadocont = myApp.photoBrowser({
@@ -10320,6 +10448,21 @@ function comunmoradorcont(id,eq){
                                         '</li>';
                         imgComunicado = "";
                     $('#comunicadocont-cont').html(datacomunicado);
+
+                    //marcar comunicado como lido
+                    $('#comunmorador-cont li[data-index='+eq+'] a .item-inner').removeClass("textbold");
+                    
+                    //subtrair badges
+                    if (data.comunicado[i].moradorview==true || data.comunicado[i].portariaview==true || data.comunicado[i].sindicoview==true || data.comunicado[i].adminview==true) {
+                        if ($(".badgecomunmorador span").html()!="") {
+                            //subtrair badge tab
+                            $(".badgecomunmorador span").html(parseInt($(".badgecomunmorador span").text())-1);
+                        }
+                        if ($(".badgecomunicado span").html()!="") {
+                            //subtrair badge icon
+                            $(".badgecomunicado span").html(parseInt($(".badgecomunicado span").text())-1);
+                        }
+                    }
                 }
             
             },error: function(data) {
@@ -10338,7 +10481,7 @@ function comunmoradorcont(id,eq){
                 var qtd = data.resposta.length;
                 var imgResposta = "";
                 var imgZoom;
-                var imgTitle = "Aptohome";
+                var imgTitle = $nameapp;
                 var dataresp;
 
                 for (var i = 0; i < qtd; i++) {
@@ -10422,18 +10565,6 @@ function comunmoradorcont(id,eq){
                     '<div class="content-block"><a href="#" id="butinserirresp" onclick="butinserirresp()" class="button button-big button-fill button-raised color-indigo button-full">ENVIAR</a></div>';
             
             $('.resp-cont').html(dataresp);
-            //marcar comunicado como lido
-            $('#comunmorador-cont li[data-index='+eq+'] a .item-inner').removeClass("textbold");
-            //subtrair badges
-            if ($(".badgecomunmorador span").html()!="") {
-                //subtrair badge tab
-                $(".badgecomunmorador span").html(parseInt($(".badgecomunmorador span").text())-1);
-            }
-            if ($(".badgecomunicado span").html()!="") {
-                //subtrair badge icon
-                $(".badgecomunicado span").html(parseInt($(".badgecomunicado span").text())-1);
-            }   
-
 }
 
 ///////////////////////////// camera comunicado morador ///////////////////////////
@@ -13371,13 +13502,13 @@ function limpar()
 
             cordova.getAppVersion.getVersionNumber(function (version) {
                 $$(".version").html("Versão: "+version);
+                localStorage.setItem("version", version);
             });
 
             var push = PushNotification.init({
                 android: {
                     senderID: "10572585588",
-                    icon: "icon-notification",
-                    iconColor: "#3f51b5"
+                    icon: "iconnotification"
                 },
                 ios: {
                     senderID: "10572585588",
@@ -13464,17 +13595,17 @@ function limpar()
 
                                 case 'comunmorador':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comunmoradorcont(data.additionalData.id);
+                                comunmoradorcont(data.additionalData.id,true);
                                 break;
 
                                 case 'comunportaria':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comunportariacont(data.additionalData.id);
+                                comunportariacont(data.additionalData.id,true);
                                 break;
 
                                 case 'transparenciadecontas':
                                 mainView.router.load({pageName: 'transparenciadecontascont'});
-                                transparenciadecontascont(data.additionalData.id);
+                                transparenciadecontascont(data.additionalData.id,true);
                                 break;
 
                                 case 'livroocorrencias':
@@ -13512,22 +13643,22 @@ function limpar()
                             switch( data.additionalData.info ){
                                 case 'comuncomunicado':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comuncomunicadocont(data.additionalData.id);
+                                comuncomunicadocont(data.additionalData.id,true);
                                 break;
 
                                 case 'comunmorador':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comunmoradorcont(data.additionalData.id);
+                                comunmoradorcont(data.additionalData.id,true);
                                 break;
 
                                 case 'comunportaria':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comunportariacont(data.additionalData.id);
+                                comunportariacont(data.additionalData.id,true);
                                 break;
 
                                 case 'transparenciadecontas':
                                 mainView.router.load({pageName: 'transparenciadecontascont'});
-                                transparenciadecontascont(data.additionalData.id);
+                                transparenciadecontascont(data.additionalData.id,true);
                                 break;
 
                                 case 'livroocorrencias':
@@ -13561,22 +13692,22 @@ function limpar()
                             switch( data.additionalData.info ){
                                 case 'comuncomunicado':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comuncomunicadocont(data.additionalData.id);
+                                comuncomunicadocont(data.additionalData.id,true);
                                 break;
 
                                 case 'comunmorador':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comunmoradorcont(data.additionalData.id);
+                                comunmoradorcont(data.additionalData.id,true);
                                 break;
 
                                 case 'comunportaria':
                                 mainView.router.load({pageName: 'comunicadocont'});
-                                comunportariacont(data.additionalData.id);
+                                comunportariacont(data.additionalData.id,true);
                                 break;
 
                                 case 'transparenciadecontas':
                                 mainView.router.load({pageName: 'transparenciadecontascont'});
-                                transparenciadecontascont(data.additionalData.id);
+                                transparenciadecontascont(data.additionalData.id,true);
                                 break;
 
                                 case 'livroocorrencias':
